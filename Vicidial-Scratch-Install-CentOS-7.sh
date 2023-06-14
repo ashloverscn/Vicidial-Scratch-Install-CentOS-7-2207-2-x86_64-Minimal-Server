@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Vicidial installation Centos7 with WebPhone(WebRTC/SIP.js)"
+echo "Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server"
 
 export LC_ALL=C
 
