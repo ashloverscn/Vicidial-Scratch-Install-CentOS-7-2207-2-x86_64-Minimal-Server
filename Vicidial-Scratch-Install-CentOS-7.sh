@@ -136,7 +136,7 @@ MYSQLCONF
 ##or Change my.cnf config using file
 echo "Download httpd.cof file from git"
 sleep 2
-cp /etc/my.cnf /etc/my.cnf.original
+\cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
 wget -O /etc/my.cnf https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/my.cnf
 
