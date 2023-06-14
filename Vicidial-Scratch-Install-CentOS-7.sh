@@ -68,7 +68,7 @@ chown -R mysql:mysql /var/log/mysqld
 
 echo "Backup Orig my.cnf file"
 sleep 2
-cp /etc/my.cnf /etc/my.cnf.original
+\cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
 #vi /etc/my.cnf
 
