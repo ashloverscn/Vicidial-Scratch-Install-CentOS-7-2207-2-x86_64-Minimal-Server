@@ -18,7 +18,7 @@ net.ipv6.conf.all.disable_ipv6 = 1\
 net.ipv6.conf.default.disable_ipv6 = 1\
 net.ipv6.conf.enp0s3.disable_ipv4 = 1\
 ' /etc/sysctl.conf
-
+sysctl -p
 
 # part 1
 echo -e "\e[0;32m Update install kernel-sources epl-release compiler tools \e[0m"
