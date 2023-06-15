@@ -6,6 +6,7 @@ sleep 5
 export LC_ALL=C
 
 # part 0
+#we will later blow holes in the firewall for now its off
 systemctl disable firewalld
 systemctl stop firewalld
 
