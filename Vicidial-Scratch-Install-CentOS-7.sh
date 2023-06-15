@@ -20,8 +20,8 @@ net.ipv6.conf.enp0s3.disable_ipv4 = 1\
 ' /etc/sysctl.conf
 
 #enable verbose boot 
-sed -i 's/quiet//g' /etc/default/grub
 sed -i 's/rhgb//g' /etc/default/grub
+sed -i 's/quiet//g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 # part 1
