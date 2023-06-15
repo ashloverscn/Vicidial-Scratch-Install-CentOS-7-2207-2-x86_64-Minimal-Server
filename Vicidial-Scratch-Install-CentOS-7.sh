@@ -212,9 +212,6 @@ sed -i -e '$a\
 Please Hold while I redirect you! \
 ' /var/www/html/index.html
 
-systemctl restart httpd
-
-
 echo -e "\e[0;32m Enable and start Httpd and MariaDb services \e[0m"
 sleep 2
 systemctl enable httpd.service
