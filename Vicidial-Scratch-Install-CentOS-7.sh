@@ -135,7 +135,7 @@ interactive-timeout
 MYSQLCONF
 
 ##or Change my.cnf config using file
-echo -e "\e[0;32m Download httpd.cof file from git \e[0m"
+echo -e "\e[0;32m Download httpd.conf file from git \e[0m"
 sleep 2
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
