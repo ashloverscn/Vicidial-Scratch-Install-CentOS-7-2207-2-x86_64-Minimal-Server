@@ -1,11 +1,11 @@
 #!/bin/sh
 
-echo "Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server"
+echo -e "^C[0;32m Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server"
 
 export LC_ALL=C
 
 # part 1
-echo "Update install kernel-sources epl-release compiler tools"
+echo -e "^C[0;32m Update install kernel-sources epl-release compiler tools"
 sleep 2
 yum check-update
 yum update -y
@@ -14,11 +14,11 @@ yum -y groupinstall 'Development Tools'
 yum -y update
 yum install -y kernel*
 
-echo "Disable SeLinux"
+echo -e "^C[0;32m Disable SeLinux"
 sleep 2
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
-echo "Set TimeZone Asia/Kolkata"
+echo -e "^C[0;32m Set TimeZone Asia/Kolkata"
 sleep 2
 timedatectl set-timezone Asia/Kolkata
 
@@ -26,14 +26,14 @@ timedatectl set-timezone Asia/Kolkata
 #reboot
 
 # part 2
-echo "Install RemiRepo PHP7"
+echo -e "^C[0;32m Install RemiRepo PHP7"
 sleep 2
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
 yum-config-manager --enable remi-php74
 
-echo "Add MariaDB Repo"
+echo -e "^C[0;32m Add MariaDB Repo"
 sleep 2
 #vi /etc/yum.repos.d/MariaDB.repo
 touch /etc/yum.repos.d/MariaDB.repo
@@ -47,32 +47,32 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 MARIADBREPO
 
-echo "Install Compiler\Build Tools"
+echo -e "^C[0;32m Install Compiler\Build Tools"
 sleep 2
 yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop -y
 
 yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel -y
 
 # part 3
-echo "Install and configure MariaDB\SQL"
+echo -e "^C[0;32m Install and configure MariaDB\SQL"
 sleep 2
 yum -y install sqlite-devel
 yum install mariadb-server mariadb -y
 
-echo "Create mysql Log files"
+echo -e "^C[0;32m Create mysql Log files"
 sleep 2
 mkdir /var/log/mysqld
 mv /var/log/mysqld.log /var/log/mysqld/mysqld.log
 touch /var/log/mysqld/slow-queries.log
 chown -R mysql:mysql /var/log/mysqld
 
-echo "Backup Orig my.cnf file"
+echo -e "^C[0;32m Backup Orig my.cnf file"
 sleep 2
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
 #vi /etc/my.cnf
 
-echo "Create new my.cnf file"
+echo -e "^C[0;32m Create new my.cnf file"
 sleep 2
 cat <<MYSQLCONF>> /etc/my.cnf
 [mysql.server]
@@ -134,14 +134,14 @@ interactive-timeout
 MYSQLCONF
 
 ##or Change my.cnf config using file
-echo "Download httpd.cof file from git"
+echo -e "^C[0;32m Download httpd.cof file from git"
 sleep 2
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
 wget -O /etc/my.cnf https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/my.cnf
 
 
-echo "Configure Httpd\Apache2"
+echo -e "^C[0;32m Configure Httpd\Apache2"
 sleep 2
 ## convert it to sed injection
 vi +217 /etc/httpd/conf/httpd.conf
@@ -159,12 +159,12 @@ Require all granted
 </Directory>
 
 ##or Change Httpd\Apache2 config using file
-echo "Donwload httpd.cof file from git"
+echo -e "^C[0;32m Donwload httpd.cof file from git"
 sleep 2
 wget -O /etc/httpd/conf/httpd.conf https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/httpd.conf
 
 
-echo "Configure PHP"
+echo -e "^C[0;32m Configure PHP"
 sleep 2
 ## convert it to sed injection
 vi /etc/php.ini
@@ -180,12 +180,12 @@ default_socket_timeout = 360
 date.timezone = Asia/Kolkata
 
 #or Change PHP config using file
-echo "Download the PHP ini file from Git"
+echo -e "^C[0;32m Download the PHP ini file from Git"
 sleep 2
 #wget -O /etc/php.ini https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/php.ini
 
 
-echo "Enable and start Httpd and MariaDb services"
+echo -e "^C[0;32m Enable and start Httpd and MariaDb services"
 sleep 2
 systemctl enable httpd.service
 systemctl enable mariadb.service
@@ -195,7 +195,7 @@ systemctl status mariadb.service
 systemctl status httpd.service
 
 
-echo "Install and Configure Perl-CPAN\Perl-CPAN-Modules"
+echo -e "^C[0;32m Install and Configure Perl-CPAN\Perl-CPAN-Modules"
 sleep 2
 yum install perl-CPAN -y
 yum install perl-YAML -y
@@ -260,7 +260,7 @@ cpanm Text::CSV_XS
 cpanm readline --force
 
 
-echo "Install Asterisk Perl"
+echo -e "^C[0;32m Install Asterisk Perl"
 sleep 2
 cd /usr/src
 wget http://download.vicidial.com/required-apps/asterisk-perl-0.08.tar.gz
@@ -271,7 +271,7 @@ make all
 make install
 
 
-echo "Install SIPSack"
+echo -e "^C[0;32m Install SIPSack"
 sleep 2
 cd /usr/src
 wget http://download.vicidial.com/required-apps/sipsak-0.9.6-1.tar.gz
@@ -284,7 +284,7 @@ make install
 sipsak --version
 
 
-echo "Install Lame"
+echo -e "^C[0;32m Install Lame"
 sleep 2
 cd /usr/src
 wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
@@ -295,7 +295,7 @@ make
 make install
 
 
-echo "Install Jansson"
+echo -e "^C[0;32m Install Jansson"
 sleep 2
 cd /usr/src/
 wget http://www.digip.org/jansson/releases/jansson-2.5.tar.gz
@@ -310,7 +310,7 @@ ldconfig
 
 
 
-echo "Install Eaccelerator - Maybe not nescessasy"
+echo -e "^C[0;32m Install Eaccelerator - Maybe not nescessasy"
 sleep 2
 cd /usr/src
 wget https://github.com/eaccelerator/eaccelerator/zipball/master -O eaccelerator.zip
@@ -327,7 +327,7 @@ chmod 0777 /tmp/eaccelerator
 php -v
 
 
-echo "Install Dahdi Audio_CODEC Driver"
+echo -e "^C[0;32m Install Dahdi Audio_CODEC Driver"
 sleep 2
 cd /usr/src
 #yum remove dahdi* -y
@@ -344,7 +344,7 @@ dahdi_genconf -v
 dahdi_cfg -v
 
 
-echo "Install LibPri"
+echo -e "^C[0;32m Install LibPri"
 sleep 2
 cd /usr/src
 wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz
@@ -354,7 +354,7 @@ make
 make install
 
 
-echo "Install Asterisk"
+echo -e "^C[0;32m Install Asterisk"
 sleep 2
 cd /usr/src
 #yum remove asterisk* -y
@@ -374,5 +374,4 @@ make menuselect
 make
 make install
 make samples
-
 
