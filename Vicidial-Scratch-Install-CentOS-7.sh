@@ -9,6 +9,13 @@ export LC_ALL=C
 #we will later blow holes in the firewall for now its off
 systemctl disable firewalld
 systemctl stop firewalld
+#disable ipv6 system-wide 
+sed -i -e '$a\
+\
+net.ipv6.conf.all.disable_ipv6 = 1\
+net.ipv6.conf.default.disable_ipv6 = 1\
+net.ipv6.conf.enp0s3.disable_ipv4 = 1\
+' /etc/sysctl.conf
 
 
 # part 1
