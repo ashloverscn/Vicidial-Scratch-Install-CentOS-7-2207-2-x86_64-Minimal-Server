@@ -8,6 +8,13 @@ yum-config-manager --enable remi-php74
 
 echo -e "\e[0;32m Add MariaDB Repo \e[0m"
 sleep 2
+cd /usr/src
+\cp -r /etc/yum.repos.d/MariaDB.repo /etc/yum.repos.d/MariaDB.repo.original
+touch /etc/yum.repos.d/MariaDB.repo
+echo "" > /etc/yum.repos.d/MariaDB.repo
+wget -O /usr/src/MariaDB.repo https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/MariaDB.repo
+\cp -r /usr/src/MariaDB.repo /etc/yum.repos.d/MariaDB.repo
+
 
 echo -e "\e[0;32m Install Compiler\Build Tools \e[0m"
 sleep 2
@@ -15,13 +22,7 @@ yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-dev
 
 yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel -y
 
-echo -e "\e[0;32m Install Compiler\Build Tools \e[0m"
-sleep 2
-yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop -y
 
-yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel -y
-
-# part 3
 echo -e "\e[0;32m Install and configure MariaDB\SQL \e[0m"
 sleep 2
 yum -y install sqlite-devel
@@ -34,38 +35,37 @@ mv /var/log/mysqld.log /var/log/mysqld/mysqld.log
 touch /var/log/mysqld/slow-queries.log
 chown -R mysql:mysql /var/log/mysqld
 
-echo -e "\e[0;32m Backup Orig my.cnf file \e[0m"
+
+echo -e "\e[0;32m Download my.cnf file from git \e[0m"
 sleep 2
+cd /usr/src
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
-#vi /etc/my.cnf
+wget -O /usr/src/my.cnf https://raw.githubusercontent.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/main/my.cnf
+\cp -r /usr/src/my.cnf /etc/my.cnf 
 
-echo -e "\e[0;32m Create new my.cnf file \e[0m"
-
-##or Change my.cnf config using file
-echo -e "\e[0;32m Download httpd.conf file from git \e[0m"
-sleep 2
-\cp -r /etc/my.cnf /etc/my.cnf.original
-echo "" > /etc/my.cnf
-wget -O /etc/my.cnf https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/my.cnf
 
 echo -e "\e[0;32m Configure Httpd\Apache2 \e[0m"
+echo -e "\e[0;32m Donwload httpd.conf file from git \e[0m"
 sleep 2
+cd /usr/src
+\cp -r /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.original
+echo "" > /etc/httpd/conf/httpd.conf
+wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/httpd.conf
+\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
 
-##or Change Httpd\Apache2 config using file
-echo -e "\e[0;32m Donwload httpd.cof file from git \e[0m"
-sleep 2
-wget -O /etc/httpd/conf/httpd.conf https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/httpd.conf
 
 echo -e "\e[0;32m Configure PHP \e[0m"
-sleep 2
-
-#or Change PHP config using file
 echo -e "\e[0;32m Download the PHP ini file from Git \e[0m"
 sleep 2
-#wget -O /etc/php.ini https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/php.ini
+cd /usr/src
+\cp -r /etc/php.ini /etc/php.ini.original
+echo "" > /etc/php.ini
+wget -O /usr/src/php.ini https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/php.ini
+\cp -r /usr/src/php.ini /etc/php.ini
 
-#create auto redirect to welcome.php
+
+echo -e "\e[0;32m create index.html in webroot for redirecting to welcome.php \e[0m"
 touch /var/www/html/index.html
 echo "" > /var/www/html/index.html
 sed -i -e '$a\
