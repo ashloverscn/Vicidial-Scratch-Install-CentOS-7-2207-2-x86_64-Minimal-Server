@@ -232,9 +232,10 @@ yum install perl-DBD-MySQL -y
 yum install perl-GD -y
 
 cd /usr/bin/
+curl -LOk http://xrl.us/cpanm
+curl -LOk https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/cpanm
 cpan App::cpanminus 
 #cpanm --installdeps .
-curl -LOk http://xrl.us/cpanm
 chmod +x cpanm
 cpanm -f File::HomeDir
 cpanm -f File::Which
