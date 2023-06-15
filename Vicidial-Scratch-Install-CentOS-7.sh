@@ -204,6 +204,16 @@ echo -e "\e[0;32m Download the PHP ini file from Git \e[0m"
 sleep 2
 #wget -O /etc/php.ini https://raw.githubusercontent.com/jaganthoutam/vicidial-install-scripts/main/php.ini
 
+#create auto redirect to welcome.php
+touch /var/www/html/index.html
+echo "" > /var/www/html/index.html
+sed -i -e '$a\
+<META HTTP-EQUIV=REFRESH CONTENT="1; URL=/vicidial/welcome.php"> \
+Please Hold while I redirect you! \
+' /var/www/html/index.html
+
+systemctl restart httpd
+
 
 echo -e "\e[0;32m Enable and start Httpd and MariaDb services \e[0m"
 sleep 2
