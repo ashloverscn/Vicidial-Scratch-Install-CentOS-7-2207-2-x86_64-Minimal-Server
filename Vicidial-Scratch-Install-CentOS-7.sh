@@ -5,6 +5,11 @@ sleep 5
 
 export LC_ALL=C
 
+# part 0
+systemctl disable firewalld
+systemctl stop firewalld
+
+
 # part 1
 echo -e "\e[0;32m Update install kernel-sources epl-release compiler tools \e[0m"
 sleep 2
