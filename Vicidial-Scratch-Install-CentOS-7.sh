@@ -363,7 +363,7 @@ cd /usr/src
 yum install asterisk* -y
 wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
-tar -xvzf asterisk-*
+tar -xvzf asterisk-1*
 cd asterisk-*
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
 make menuselect
