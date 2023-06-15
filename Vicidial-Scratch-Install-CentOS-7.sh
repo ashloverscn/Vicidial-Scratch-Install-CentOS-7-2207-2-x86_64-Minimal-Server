@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo -e "^C[0;32m Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server \e[0m"
+sleep 5
 
 export LC_ALL=C
 
