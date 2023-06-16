@@ -9,3 +9,4 @@ make
 make install
 /usr/local/bin/sipsak --version
 sipsak --version
+
