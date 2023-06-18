@@ -1,6 +1,9 @@
-# part 2
 echo -e "\e[0;32m Install RemiRepo PHP7 \e[0m"
 sleep 2
+yum -y remove https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum -y remove http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum -y remove yum-utils
+
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
@@ -12,21 +15,33 @@ cd /usr/src
 \cp -r /etc/yum.repos.d/MariaDB.repo /etc/yum.repos.d/MariaDB.repo.original
 touch /etc/yum.repos.d/MariaDB.repo
 echo "" > /etc/yum.repos.d/MariaDB.repo
-wget -O /usr/src/MariaDB.repo https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/MariaDB.repo
-\cp -r /usr/src/MariaDB.repo /etc/yum.repos.d/MariaDB.repo
+#wget -O /usr/src/MariaDB.repo https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/MariaDB.repo
+\cp -r ./MariaDB.repo /etc/yum.repos.d/MariaDB.repo
+#\cp -r /usr/src/MariaDB.repo /etc/yum.repos.d/MariaDB.repo
 
 
 echo -e "\e[0;32m Install Compiler\Build Tools \e[0m"
 sleep 2
-yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop -y
+yum -y remove make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop
 
-yum install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel -y
+yum -y remove make make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel
+
+yum -y install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop
+
+yum -y install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel
 
 
 echo -e "\e[0;32m Install and configure MariaDB\SQL \e[0m"
 sleep 2
+yum -y remove sqlite-devel
+yum -y remove mariadb-server mariadb MariaDB-compat
+
 yum -y install sqlite-devel
-yum install mariadb-server mariadb -y
+yum -y install mariadb-server mariadb 
+
+yum -y install sqlite-devel
+yum -y install mariadb-server mariadb
+
 
 echo -e "\e[0;32m Create mysql Log files \e[0m"
 sleep 2
@@ -41,8 +56,9 @@ sleep 2
 cd /usr/src
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
-wget -O /usr/src/my.cnf https://raw.githubusercontent.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/main/my.cnf
-\cp -r /usr/src/my.cnf /etc/my.cnf 
+#wget -O /usr/src/my.cnf https://raw.githubusercontent.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/main/my.cnf
+\cp -r ./my.cnf /etc/my.cnf
+#\cp -r /usr/src/my.cnf /etc/my.cnf 
 
 
 echo -e "\e[0;32m Configure Httpd\Apache2 \e[0m"
@@ -51,8 +67,9 @@ sleep 2
 cd /usr/src
 \cp -r /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.original
 echo "" > /etc/httpd/conf/httpd.conf
-wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/httpd.conf
-\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
+#wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/httpd.conf
+\cp -r ./httpd.conf /etc/httpd/conf/httpd.conf
+#\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
 
 
 echo -e "\e[0;32m Configure PHP \e[0m"
@@ -61,8 +78,9 @@ sleep 2
 cd /usr/src
 \cp -r /etc/php.ini /etc/php.ini.original
 echo "" > /etc/php.ini
-wget -O /usr/src/php.ini https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/php.ini
-\cp -r /usr/src/php.ini /etc/php.ini
+#wget -O /usr/src/php.ini https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/php.ini
+\cp -r ./php.ini /etc/php.ini
+#\cp -r /usr/src/php.ini /etc/php.ini
 
 
 echo -e "\e[0;32m create index.html in webroot for redirecting to welcome.php \e[0m"
