@@ -1,4 +1,5 @@
-# part 1
+#!/bin/sh
+
 echo -e "\e[0;32m Update install kernel-sources epl-release compiler tools \e[0m"
 sleep 2
 yum check-update
