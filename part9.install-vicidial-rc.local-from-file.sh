@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo -e "\e[0;32m Install rc.local entry for vicidial services startup \e[0m"
 sleep 2
 cd /usr/src
