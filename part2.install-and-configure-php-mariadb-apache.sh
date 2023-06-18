@@ -4,11 +4,15 @@ echo -e "\e[0;32m Install RemiRepo PHP7 \e[0m"
 sleep 2
 
 yum -y remove https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
 yum -y remove http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
 yum -y remove yum-utils
 
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
 yum -y install yum-utils
 
 yum-config-manager --enable remi-php74
