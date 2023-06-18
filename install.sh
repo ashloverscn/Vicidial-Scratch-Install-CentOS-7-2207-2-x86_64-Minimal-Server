@@ -5,6 +5,7 @@ YELLOW='\033[0;33m'
 RESET='\033[0m'
 sec=11
 tput civis
+echo -ne "${GREEN}"
 
 while [ $sec -ge 0 ]; do
 echo -ne "$(printf "%02d" $sec):$(printf "%02d" $sec):$(printf "%02d" $sec)\0
