@@ -1,5 +1,6 @@
 echo -e "\e[0;32m Install RemiRepo PHP7 \e[0m"
 sleep 2
+
 yum -y remove https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y remove http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y remove yum-utils
@@ -7,10 +8,12 @@ yum -y remove yum-utils
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
+
 yum-config-manager --enable remi-php74
 
 echo -e "\e[0;32m Add MariaDB Repo \e[0m"
 sleep 2
+
 cd /usr/src
 \cp -r /etc/yum.repos.d/MariaDB.repo /etc/yum.repos.d/MariaDB.repo.original
 touch /etc/yum.repos.d/MariaDB.repo
@@ -22,6 +25,7 @@ echo "" > /etc/yum.repos.d/MariaDB.repo
 
 echo -e "\e[0;32m Install Compiler\Build Tools \e[0m"
 sleep 2
+
 yum -y remove make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-opcache curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel htop iftop
 
 yum -y remove make make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-devel php-gd gd-devel php-mbstring php-mcrypt php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel httpd libpcap libpcap-devel libnet ncurses ncurses-devel screen mysql-devel ntp mutt glibc.i686 wget nano unzip sipsak sox libss7* libopen* openssl libsrtp libsrtp-devel unixODBC unixODBC-devel libtool-ltdl libtool-ltdl-devel
@@ -33,18 +37,23 @@ yum -y install make patch gcc perl-Term-ReadLine-Gnu gcc-c++ subversion php php-
 
 echo -e "\e[0;32m Install and configure MariaDB\SQL \e[0m"
 sleep 2
+
 yum -y remove sqlite-devel
+
 yum -y remove mariadb-server mariadb MariaDB-compat
 
 yum -y install sqlite-devel
+
 yum -y install mariadb-server mariadb 
 
 yum -y install sqlite-devel
+
 yum -y install mariadb-server mariadb
 
 
 echo -e "\e[0;32m Create mysql Log files \e[0m"
 sleep 2
+
 mkdir /var/log/mysqld
 mv /var/log/mysqld.log /var/log/mysqld/mysqld.log
 touch /var/log/mysqld/slow-queries.log
@@ -53,6 +62,7 @@ chown -R mysql:mysql /var/log/mysqld
 
 echo -e "\e[0;32m Download my.cnf file from git \e[0m"
 sleep 2
+
 cd /usr/src
 \cp -r /etc/my.cnf /etc/my.cnf.original
 echo "" > /etc/my.cnf
@@ -64,6 +74,7 @@ echo "" > /etc/my.cnf
 echo -e "\e[0;32m Configure Httpd\Apache2 \e[0m"
 echo -e "\e[0;32m Donwload httpd.conf file from git \e[0m"
 sleep 2
+
 cd /usr/src
 \cp -r /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.original
 echo "" > /etc/httpd/conf/httpd.conf
@@ -75,6 +86,7 @@ echo "" > /etc/httpd/conf/httpd.conf
 echo -e "\e[0;32m Configure PHP \e[0m"
 echo -e "\e[0;32m Download the PHP ini file from Git \e[0m"
 sleep 2
+
 cd /usr/src
 \cp -r /etc/php.ini /etc/php.ini.original
 echo "" > /etc/php.ini
@@ -84,6 +96,8 @@ echo "" > /etc/php.ini
 
 
 echo -e "\e[0;32m create index.html in webroot for redirecting to welcome.php \e[0m"
+sleep 2
+
 touch /var/www/html/index.html
 echo "" > /var/www/html/index.html
 sed -i -e '$a\
@@ -93,6 +107,7 @@ Please Hold while I redirect you! \
 
 echo -e "\e[0;32m Enable and start Httpd and MariaDb services \e[0m"
 sleep 2
+
 systemctl enable httpd.service
 systemctl enable mariadb.service
 systemctl start httpd.service
