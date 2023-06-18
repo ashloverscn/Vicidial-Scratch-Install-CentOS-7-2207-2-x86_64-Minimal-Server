@@ -11,8 +11,6 @@ cd asterisk-*
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
 
-#### asterisk menuselect interactive
-# or
 #### asterisk menuselect preconfig
 make menuselect/menuselect menuselect-tree menuselect.makeopts
 #enable app_meetme
