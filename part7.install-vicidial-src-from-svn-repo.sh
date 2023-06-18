@@ -1,3 +1,5 @@
+#!/bin/sh
+
 mkdir /usr/src/astguiclient
 cd /usr/src/astguiclient
 svn checkout svn://svn.eflo.net/agc_2-X/trunk
