@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cd /usr/src
 cd asterisk-*
 make
