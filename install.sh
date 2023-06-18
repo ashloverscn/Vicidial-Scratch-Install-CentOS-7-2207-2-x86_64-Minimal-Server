@@ -10,6 +10,7 @@ while [ $sec -ge 0 ]; do
 echo -ne "$(printf "%02d" $sec):$(printf "%02d" $sec):$(printf "%02d" $sec)\0
 let "sec=sec-1"
 sleep 1
+done
 
 #clear
 
