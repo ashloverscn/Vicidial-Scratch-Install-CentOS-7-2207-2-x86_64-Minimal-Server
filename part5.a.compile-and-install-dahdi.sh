@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo -e "\e[0;32m Install Dahdi Audio_CODEC Driver \e[0m"
 sleep 2
 cd /usr/src
