@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo -e "\e[0;32m System will REBOOT in 50 Seconds \e[0m"
 sleep 2 
 
