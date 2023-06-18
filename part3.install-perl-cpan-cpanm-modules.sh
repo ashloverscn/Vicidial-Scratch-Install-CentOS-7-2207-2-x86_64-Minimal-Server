@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo -e "\e[0;32m Install and Configure Perl-CPAN\Perl-CPAN-Modules \e[0m"
 sleep 2
 yum install perl-CPAN -y
