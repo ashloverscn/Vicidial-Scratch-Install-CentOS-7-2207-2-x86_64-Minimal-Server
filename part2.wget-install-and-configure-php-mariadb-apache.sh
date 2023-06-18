@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo -e "\e[0;32m Install RemiRepo PHP7 \e[0m"
 sleep 2
 
