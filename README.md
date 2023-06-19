@@ -12,3 +12,10 @@ www.facebook.com/ashishsharma1992
 
 www.youtube.com/ashloverscn
 
+TO INSTALL :
+
+wget https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/install.sh
+
+chmod +x install.sh
+
+./install.sh
