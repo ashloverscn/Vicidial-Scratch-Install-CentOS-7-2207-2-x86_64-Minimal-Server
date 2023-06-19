@@ -42,7 +42,9 @@ unzip ./Vicidial-Scratch-Install-*
 
 rm -rf ./Vicidial-Scratch-Install-*.zip
 
-cd ./Vicidial-Scratch-Install-*
+mv ./Vicidial-Scratch-Install-*/* ./
+
+rm -rf ./Vicidial-Scratch-Install-*
 
 chmod +x *.sh
 
