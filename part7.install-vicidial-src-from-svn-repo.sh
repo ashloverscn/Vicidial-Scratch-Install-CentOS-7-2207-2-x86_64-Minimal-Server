@@ -30,15 +30,6 @@ sleep 5
 cd /usr/src/astguiclient/trunk
 perl install.pl
 
-#--Follow the onscreen instructions--
-#--for web type /var/www/html--
-#--for asterisk version type 13.X--
-#--type Y to copy sample configuration---
-#--below is my output for reference type your IP address--
-
-#server webroot path or press enter for default: [/usr/local/apache2/htdocs] /var/www/html
-#server IP address or press enter for default: [] server_ip 
-#Enter asterisk version or press enter for default: [13.X]
 #Copy sample configuration files to /etc/asterisk/ ? [n] y
 #Copy web language translation files to webroot ? []y
 
