@@ -12,7 +12,7 @@ www.facebook.com/ashishsharma1992
 
 www.youtube.com/ashloverscn
 
-TO INSTALL :
+HOW TO INSTALL :
 ## root permission needed
 sudo su
 
