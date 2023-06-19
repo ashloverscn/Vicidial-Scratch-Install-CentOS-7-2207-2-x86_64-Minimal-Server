@@ -20,6 +20,9 @@ net.ipv6.conf.default.disable_ipv6 = 1\
 net.ipv6.conf.enp0s3.disable_ipv4 = 1\
 ' /etc/sysctl.conf
 
+systemctl restart network
+service network restart
+
 #enable verbose boot 
 sed -i 's/rhgb//g' /etc/default/grub
 sed -i 's/quiet//g' /etc/default/grub
