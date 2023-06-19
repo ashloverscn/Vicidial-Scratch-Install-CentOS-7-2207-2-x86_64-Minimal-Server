@@ -48,7 +48,7 @@ chmod +x *.sh
 
 clear 
 
-ls -la
+ls
 
 pwd
 
