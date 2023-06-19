@@ -51,8 +51,10 @@ chmod +x *.sh
 pwd
 
 ###########################################################################################################
+./part0.system-hw-prepration.sh
+./part1.update-install-kernel-sources-epl-release-compiler-tools.sh
 ./part2.install-and-configure-php-mariadb-apache.sh
-./part2.install-and-configure-php-mariadb-apache.sh
+./part3.install-perl-cpan-cpanm-modules.sh
 ./part4.a.compile-and-install-asterisk-perl.sh
 ./part4.b.compile-and-install-sipsak.sh
 ./part4.c.compile-and-install-lame.sh
@@ -61,6 +63,13 @@ pwd
 ./part5.a.compile-and-install-dahdi.sh
 ./part5.b.compile-and-install-libpri.sh
 ./part6.compile-asterisk-make-install-and-samples-menuconfig-automated.sh
+./part7.install-vicidial-src-from-svn-repo.sh
+./part8.install-vicidial-crontab-from-file.sh
+./part9.install-vicidial-rc.local-from-file.sh
+./part10.install-vicidial-asterisk-default-sounds.sh
+
+
+
 
 
 
