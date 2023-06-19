@@ -5,7 +5,7 @@ cd /usr/src/astguiclient
 svn checkout svn://svn.eflo.net/agc_2-X/trunk
 cd /usr/src/astguiclient/trunk
 
-mysql -u root << ASTERISKDUMMYDB
+mysql -uroot
 DROP DATABASE asterisk;
 CREATE DATABASE asterisk DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 CREATE USER 'cron'@'localhost' IDENTIFIED BY '1234';
@@ -24,8 +24,9 @@ use asterisk;
 \. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 \. /usr/src/astguiclient/trunk/extras/first_server_install.sql
 update servers set asterisk_version='13.29.2';
+show tables;
 quit
-ASTERISKDUMMYDB
+
 
 cd /usr/src/astguiclient/trunk
 perl install.pl
