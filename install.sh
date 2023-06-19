@@ -40,7 +40,7 @@ wget -O ./Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.zip htt
 
 unzip ./Vicidial-Scratch-Install-*
 
-rm -rf ./Vicidial-Scratch-Install-*-.zip
+rm -rf ./Vicidial-Scratch-Install-*.zip
 
 cd ./Vicidial-Scratch-Install-*
 
