@@ -24,8 +24,28 @@ echo -e "${RESET}"
 
 tput cnorm
 
+history -c
+
+clear
+
+
 #################################################################################
-uname -a
-yum -y install net-tools
-ifconfig
+cd /usr/src
+
+yum -y check-update
+
+yum -y install wget git unzip tar net-tools
+
+wget -O ./Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.zip https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/archive/refs/heads/main.zip
+
+unzip ./Vicidial-Scratch-Install-*-.zip
+
+rm -rf ./Vicidial-Scratch-Install-*-.zip
+
+cd ./Vicidial-Scratch-Install-*
+
+clear 
+
+ls -la
+
 
