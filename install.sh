@@ -46,11 +46,22 @@ cd ./Vicidial-Scratch-Install-*
 
 chmod +x *.sh
 
-clear 
-
-ls
-
 pwd
+
+###########################################################################################################
+./part2.install-and-configure-php-mariadb-apache.sh
+./part2.wget-install-and-configure-php-mariadb-apache.sh
+./part4.a.compile-and-install-asterisk-perl.sh
+./part4.b.compile-and-install-sipsak.sh
+./part4.c.compile-and-install-lame.sh
+./part4.d.compile-and-install-jansson.sh
+./part4.e.compile-and-install-eaccelerator.sh
+./part5.a.compile-and-install-dahdi.sh
+./part5.b.compile-and-install-libpri.sh
+./part6.compile-asterisk-make-install-and-samples-menuconfig-automated.sh
+
+
+
 
 
 
