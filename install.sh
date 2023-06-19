@@ -7,9 +7,10 @@ RESET='\033[0m'
 sec=10
 
 tput civis
+
 echo -e "${YELLOW}"
 
-while [ $sec -ge 1 ]; do
+while [ $sec -gt 0 ]; do
 	clear
 	let "sec=sec-1"
 	echo -ne "${GREEN}"
@@ -19,12 +20,12 @@ while [ $sec -ge 1 ]; do
 	sleep 1
 done
 
-#echo -e "${RESET}"
-echo -e "${GREEN}"
-tput cnorm
-clear
+echo -e "${RESET}"
 
-#####
-sudo su
-cd /usr/src
-ip a
+tput cnorm
+
+#################################################################################
+uname -a
+yum -y install net-tools
+ifconfig
+
