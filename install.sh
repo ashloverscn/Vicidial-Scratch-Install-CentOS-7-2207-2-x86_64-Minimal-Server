@@ -52,7 +52,7 @@ pwd
 
 ###########################################################################################################
 ./part2.install-and-configure-php-mariadb-apache.sh
-./part2.wget-install-and-configure-php-mariadb-apache.sh
+./part2.install-and-configure-php-mariadb-apache.sh
 ./part4.a.compile-and-install-asterisk-perl.sh
 ./part4.b.compile-and-install-sipsak.sh
 ./part4.c.compile-and-install-lame.sh
