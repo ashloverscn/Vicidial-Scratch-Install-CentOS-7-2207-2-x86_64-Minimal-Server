@@ -21,3 +21,4 @@ wget https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86
 chmod +x install.sh
 
 ./install.sh
+
