@@ -44,8 +44,14 @@ rm -rf ./Vicidial-Scratch-Install-*-.zip
 
 cd ./Vicidial-Scratch-Install-*
 
+chmod +x *.sh
+
 clear 
 
 ls -la
+
+pwd
+
+
 
 
