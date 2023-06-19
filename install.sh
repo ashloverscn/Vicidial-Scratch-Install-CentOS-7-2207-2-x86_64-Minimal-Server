@@ -38,7 +38,7 @@ yum -y install wget git unzip tar net-tools
 
 wget -O ./Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.zip https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/archive/refs/heads/main.zip
 
-unzip ./Vicidial-Scratch-Install-*-.zip
+unzip ./Vicidial-Scratch-Install-*
 
 rm -rf ./Vicidial-Scratch-Install-*-.zip
 
