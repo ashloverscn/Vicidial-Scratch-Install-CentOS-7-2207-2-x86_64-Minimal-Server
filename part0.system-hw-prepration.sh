@@ -15,9 +15,9 @@ cat /etc/sysctl.conf
 #if already present then dont add the lines 
 sed -i -e '$a\
 \
-net.ipv6.conf.all.disable_ipv6 = 1\
-net.ipv6.conf.default.disable_ipv6 = 1\
-net.ipv6.conf.enp0s3.disable_ipv4 = 1\
+net.ipv6.conf.all.disable_ipv6 = 1 \
+net.ipv6.conf.default.disable_ipv6 = 1 \
+net.ipv6.conf.enp0s3.disable_ipv6 = 1 \
 ' /etc/sysctl.conf
 
 systemctl restart network
