@@ -5,28 +5,27 @@ cd /usr/src/astguiclient
 svn checkout svn://svn.eflo.net/agc_2-X/trunk
 cd /usr/src/astguiclient/trunk
 
-mysql -uroot
-DROP DATABASE asterisk;
-CREATE DATABASE asterisk DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-CREATE USER 'cron'@'localhost' IDENTIFIED BY '1234';
-GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO cron@'%' IDENTIFIED BY '1234';
-GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO cron@localhost IDENTIFIED BY '1234';
-GRANT RELOAD ON *.* TO cron@'%';
-GRANT RELOAD ON *.* TO cron@localhost;
-CREATE USER 'custom'@'localhost' IDENTIFIED BY 'custom1234';
-GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO custom@'%' IDENTIFIED BY 'custom1234';
-GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO custom@localhost IDENTIFIED BY 'custom1234';
-GRANT RELOAD ON *.* TO custom@'%';
-GRANT RELOAD ON *.* TO custom@localhost;
-flush privileges;
-SET GLOBAL connect_timeout=60;
-use asterisk;
-\. /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
-\. /usr/src/astguiclient/trunk/extras/first_server_install.sql
-update servers set asterisk_version='13.29.2';
-show tables;
-quit
-
+mysql -uroot -e "DROP DATABASE IF EXISTS asterisk;"
+mysql -uroot -e "SHOW DATABASES;"
+sleep 5
+mysql -uroot -e "CREATE DATABASE asterisk DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;"
+mysql -uroot -e "CREATE USER 'cron'@'localhost' IDENTIFIED BY '1234';"
+mysql -uroot -e "GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO cron@'%' IDENTIFIED BY '1234';"
+mysql -uroot -e "GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO cron@localhost IDENTIFIED BY '1234';"
+mysql -uroot -e "GRANT RELOAD ON *.* TO cron@'%';"
+mysql -uroot -e "GRANT RELOAD ON *.* TO cron@localhost;"
+mysql -uroot -e "CREATE USER 'custom'@'localhost' IDENTIFIED BY 'custom1234';"
+mysql -uroot -e "GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO custom@'%' IDENTIFIED BY 'custom1234';"
+mysql -uroot -e "GRANT SELECT,CREATE,ALTER,INSERT,UPDATE,DELETE,LOCK TABLES on asterisk.* TO custom@localhost IDENTIFIED BY 'custom1234';"
+mysql -uroot -e "GRANT RELOAD ON *.* TO custom@'%';"
+mysql -uroot -e "GRANT RELOAD ON *.* TO custom@localhost;"
+mysql -uroot -e "flush privileges;"
+mysql -uroot -e "SET GLOBAL connect_timeout=60;"
+mysql -uroot asterisk < /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
+mysql -uroot asterisk < /usr/src/astguiclient/trunk/extras/first_server_install.sql
+mysql -uroot -e "use asterisk ; update servers set asterisk_version='13.29.2';"
+mysql -uroot -e "use asterisk ; show tables;"
+sleep 5
 
 cd /usr/src/astguiclient/trunk
 perl install.pl
