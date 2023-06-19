@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -e "\e[0;32m System will REBOOT in 50 Seconds \e[0m"
+echo -e "\e[0;32m Install vicidial asterisk default sounds \e[0m"
 sleep 2 
 
 cd /usr/src
