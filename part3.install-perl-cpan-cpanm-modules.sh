@@ -65,7 +65,8 @@ cpanm Text::CSV
 cpanm Text::CSV_XS
 cpanm readline --force
 
-
+echo -e "\e[0;32m Verify all cpan-modules installed successfuly \e[0m"
+sleep 2
 cpanm File::HomeDir
 cpanm File::Which
 cpanm CPAN::Meta::Requirements
@@ -74,7 +75,7 @@ cpanm YAML
 cpanm MD5
 cpanm Digest::MD5
 cpanm Digest::SHA1
-cpanm readline
+#cpanm readline
 cpanm Bundle::CPAN
 cpanm DBI
 cpanm DBD::mysql
@@ -114,4 +115,6 @@ cpanm Crypt::Eksblowfish::Bcrypt
 cpanm Crypt::RC4
 cpanm Text::CSV
 cpanm Text::CSV_XS
+cpanm readline
+
 
