@@ -66,7 +66,7 @@ touch /var/log/mysqld/slow-queries.log
 chown -R mysql:mysql /var/log/mysqld
 
 
-echo -e "\e[0;32m Download my.cnf file from git \e[0m"
+echo -e "\e[0;32m Configure mariadb mysql my.cnf file \e[0m"
 sleep 2
 
 cd /usr/src
@@ -77,8 +77,7 @@ echo "" > /etc/my.cnf
 #\cp -r /usr/src/my.cnf /etc/my.cnf 
 
 
-echo -e "\e[0;32m Configure Httpd\Apache2 \e[0m"
-echo -e "\e[0;32m Donwload httpd.conf file from git \e[0m"
+echo -e "\e[0;32m Configure Httpd\Apache2 httpd.conf file \e[0m"
 sleep 2
 
 cd /usr/src
@@ -89,8 +88,7 @@ echo "" > /etc/httpd/conf/httpd.conf
 #\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
 
 
-echo -e "\e[0;32m Configure PHP \e[0m"
-echo -e "\e[0;32m Download the PHP ini file from Git \e[0m"
+echo -e "\e[0;32m Configure PHP PHP.ini file \e[0m"
 sleep 2
 
 cd /usr/src
