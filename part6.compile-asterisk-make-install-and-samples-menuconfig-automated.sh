@@ -8,7 +8,7 @@ yum install asterisk* -y
 wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-1*
-cd asterisk-*
+cd asterisk-1*
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
