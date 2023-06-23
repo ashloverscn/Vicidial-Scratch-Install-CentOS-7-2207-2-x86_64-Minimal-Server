@@ -7,6 +7,7 @@ cd /usr/src
 yum install dahdi* -y
 yum install dahdi-tools* -y
 wget http://download.vicidial.com/beta-apps/dahdi-linux-complete-2.11.1.tar.gz
+#wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
 tar -xvzf dahdi-linux-complete-*
 cd dahdi-linux-complete-*
 make all
