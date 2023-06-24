@@ -7,9 +7,13 @@ sleep 2
 cd /usr/src
 #rm -rf asterisk*
 #yum remove asterisk* -y
+#yum remove asterisk-* -y
 #zypper remove asterisk* -y
+#zypper remove asterisk-* -y
 yum install asterisk* -y
+yum install asterisk-* -y
 zypper install asterisk* -y
+zypper install asterisk-* -y
 wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver$oem.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-$ver$oem.tar.gz
