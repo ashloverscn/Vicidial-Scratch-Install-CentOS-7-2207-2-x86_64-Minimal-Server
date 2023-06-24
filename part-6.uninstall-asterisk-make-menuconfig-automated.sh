@@ -1,4 +1,5 @@
 cd /usr/src
+#rm -rf asterisk*
 #yum remove asterisk* -y
 yum install asterisk* -y
 wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
