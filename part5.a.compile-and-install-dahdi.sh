@@ -18,3 +18,4 @@ modprobe dahdi
 modprobe dahdi_dummy
 dahdi_genconf -v
 dahdi_cfg -v
+
