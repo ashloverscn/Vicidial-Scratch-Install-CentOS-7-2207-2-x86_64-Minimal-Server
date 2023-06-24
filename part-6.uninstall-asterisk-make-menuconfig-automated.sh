@@ -1,3 +1,7 @@
+#!/bin/sh
+ver=13.29.2-vici
+echo -e "\e[0;32m Install Asterisk \e[0m"
+sleep 2
 cd /usr/src
 #rm -rf asterisk*
 #yum remove asterisk* -y
