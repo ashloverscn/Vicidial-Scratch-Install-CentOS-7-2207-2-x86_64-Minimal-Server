@@ -1,8 +1,9 @@
 #!/bin/sh
-
-echo -e "\e[0;32m Install Asterisk \e[0m"
+ver=13.29.2-vici
+echo -e "\e[0;32m Install Asterisk v$ver \e[0m"
 sleep 2
 cd /usr/src
+#rm -rf asterisk*
 #yum remove asterisk* -y
 yum install asterisk* -y
 wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
