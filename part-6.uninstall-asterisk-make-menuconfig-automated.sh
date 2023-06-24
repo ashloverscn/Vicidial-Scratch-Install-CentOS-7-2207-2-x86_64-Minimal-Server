@@ -1,6 +1,6 @@
 #!/bin/sh
 ver=13.29.2-vici
-echo -e "\e[0;32m Remove\Install Asterisk \e[0m"
+echo -e "\e[0;32m Remove\Install Asterisk v$ver \e[0m"
 sleep 2
 cd /usr/src
 #rm -rf asterisk*
