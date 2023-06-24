@@ -6,10 +6,10 @@ cd /usr/src
 #rm -rf asterisk*
 #yum remove asterisk* -y
 yum install asterisk* -y
-wget http://download.vicidial.com/required-apps/asterisk-13.29.2-vici.tar.gz
+wget -O asterisk-$ver.tar.gz http://download.vicidial.com/required-apps/asterisk-$ver.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
-tar -xvzf asterisk-1*
-cd asterisk-1*
+tar -xvzf asterisk-$ver.tar.gz
+cd asterisk-asterisk-$ver
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
