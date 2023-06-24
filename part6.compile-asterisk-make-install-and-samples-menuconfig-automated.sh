@@ -6,15 +6,10 @@ echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
 sleep 2
 cd /usr/src
 #rm -rf asterisk*
-#rpm -i --replacepkgs /var/cache/zypp/packages/openSUSE-Leap-15.3-ViciDial-Ast13/x86_64/asterisk-13.38.2-lp153.7.23.x86_64.rpm
 #yum remove asterisk -y
 #yum remove asterisk-* -y
-#zypper remove asterisk -y
-#zypper remove asterisk-* -y
 yum install asterisk -y
 yum install asterisk-* -y
-zypper install asterisk -y
-zypper install asterisk-* -y
 wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver$oem.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-$ver$oem.tar.gz
