@@ -1,16 +1,23 @@
 #!/bin/sh
 ver=3.2.0
+rc=.1
 echo -e "\e[0;32m Install Dahdi Audio_CODEC Driver v$ver \e[0m"
 sleep 2
 cd /usr/src
 #rm -rf dahdi-linux-complete*
 #yum remove dahdi* -y
+#yum remove dahdi-tools* -y
 yum install dahdi* -y
 yum install dahdi-tools* -y
-#wget http://download.vicidial.com/beta-apps/dahdi-linux-complete-2.11.1.tar.gz
-wget -O dahdi-linux-complete-$ver+$ver.tar.gz https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-$ver%2B$ver.tar.gz
-tar -xvzf dahdi-linux-complete-$ver+$ver.tar.gz
-cd dahdi-linux-complete-$ver+$ver
+
+#wget http://download.vicidial.com/required-apps/dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
+#tar -xvzf dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
+#cd dahdi-linux-complete-2.3.0.1+2.3.0
+
+wget -O dahdi-linux-complete-$ver$rc+$ver$rc.tar.gz https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-$ver$rc%2B$ver$rc.tar.gz
+tar -xvzf dahdi-linux-complete-$ver$rc+$ver$rc.tar.gz
+cd dahdi-linux-complete-$ver$rc+$ver$rc
+
 make all
 make install
 make config
