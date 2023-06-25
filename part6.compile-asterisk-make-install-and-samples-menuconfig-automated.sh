@@ -1,5 +1,5 @@
 #!/bin/sh
-ver=16.17.0
+ver=13.29.2
 oem=-vici
 subdr=beta-apps
 echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
