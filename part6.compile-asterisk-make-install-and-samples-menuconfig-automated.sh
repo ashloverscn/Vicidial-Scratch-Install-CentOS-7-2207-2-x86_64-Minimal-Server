@@ -14,6 +14,7 @@ wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$v
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
 tar -xvzf asterisk-$ver$oem.tar.gz
 cd asterisk-$ver$oem
+cd asterisk-$ver
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
