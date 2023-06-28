@@ -34,7 +34,7 @@ cd /usr/src
 
 yum -y check-update
 
-yum -y install wget git unzip net-tools bash-completion bash-completion-extras
+yum -y install wget git unzip net-tools expect bash-completion bash-completion-extras
 
 wget -O ./Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.zip https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/archive/refs/heads/main.zip
 
