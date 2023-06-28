@@ -9,6 +9,8 @@ yum install perl-DBI -y
 yum install perl-DBD-MySQL -y
 yum install perl-GD -y
 
+perl -MCPAN -e 'my $c = "CPAN::HandleConfig"; $c->load(doit => 1, autoconfig => 1); $c->edit(prerequisites_policy => "follow"); $c->edit(build_requires_install_policy => "yes"); $c->commit' 
+
 cd /usr/bin/
 #curl -LOk http://xrl.us/cpanm
 #curl -LOk https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/cpanm
