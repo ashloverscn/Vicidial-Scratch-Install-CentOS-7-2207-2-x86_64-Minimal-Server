@@ -6,8 +6,8 @@ yum check-update
 yum -y update
 yum -y install epel-release
 yum -y groupinstall 'Development Tools'
-yum -y update
 yum -y install kernel-*
+yum -y update
 
 echo -e "\e[0;32m Disable SeLinux \e[0m"
 sleep 2
