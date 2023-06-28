@@ -58,7 +58,3 @@ sox ../mohmp3/manolo_camp-morning_coffee.wav manolo_camp-morning_coffee.wav vol 
 sox ../mohmp3/manolo_camp-morning_coffee.gsm manolo_camp-morning_coffee.gsm vol 0.25
 sox -t ul -r 8000 -c 1 ../mohmp3/manolo_camp-morning_coffee.ulaw -t ul manolo_camp-morning_coffee.ulaw vol 0.25
 
-echo -e "\e[0;32m System will REBOOT in 50 Seconds \e[0m"
-sleep 50 
-
-reboot
