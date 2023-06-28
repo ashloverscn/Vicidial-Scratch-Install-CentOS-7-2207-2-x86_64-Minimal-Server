@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo -e "\e[0;32m Please Enter This Server IP ADDRESS \e[0m"
+read serveripadd
+echo $serveripadd
+
 echo -e "\e[0;32m Clone vicidial from  SVN \e[0m"
 sleep 2
 mkdir /usr/src/astguiclient
@@ -38,9 +42,7 @@ cd /usr/src/
 echo "" > /etc/astguiclient.conf
 wget -O /usr/src/astguiclient.conf https://raw.githubusercontent.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/main/astguiclient.conf
 \cp -r ./astguiclient.conf /etc/astguiclient.conf
-echo -e "\e[0;32m Please Enter This Server IP ADDRESS \e[0m"
-read serveripadd
-echo $serveripadd
+
 sed -i 's/VARserver_ip => .*/VARserver_ip => $serveripadd/' /etc/astguiclient.conf
 
 echo -e "\e[0;32m Install vicidial \e[0m"
