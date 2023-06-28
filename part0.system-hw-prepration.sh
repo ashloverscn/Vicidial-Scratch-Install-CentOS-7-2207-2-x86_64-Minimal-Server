@@ -11,7 +11,7 @@ export LC_ALL=C
 systemctl disable firewalld
 systemctl stop firewalld
 #disable ipv6 system-wide 
-cat /etc/sysctl.conf
+echo "" > /etc/sysctl.conf
 #if already present then dont add the lines 
 sed -i -e '$a\
 \
@@ -28,4 +28,4 @@ sed -i 's/rhgb//g' /etc/default/grub
 sed -i 's/quiet//g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
-#reboot
+reboot
