@@ -1,8 +1,8 @@
 # Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server
 
 # Install VirtualBox and VirtualBox-Addons and grab 
-# my scratch installation virtual machine from here:
-https://mega.nz/file/8qVkRS6Q#n947hrjFMMIRuNygxHKqS3H8s4bQKc6Xj6vrOFif5yA
+# my scratch installation virtual machine from here
+https://mega.nz/file/Ry9UiIyQ#gNofNbMnoEpGlzp5iVfyEyVs5zk_Hk1phFeNvKhU4GU
 
 FOR ANY HELP CONTACT 
 
