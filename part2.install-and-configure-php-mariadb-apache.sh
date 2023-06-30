@@ -57,6 +57,7 @@ yum -y install sqlite-devel
 
 yum -y install mariadb-server mariadb
 
+yum -y update
 
 echo -e "\e[0;32m Create mysql Log files \e[0m"
 sleep 2
