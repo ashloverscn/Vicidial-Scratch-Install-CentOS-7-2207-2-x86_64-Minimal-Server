@@ -2,12 +2,7 @@
 
 echo -e "\e[0;32m Install and Configure Perl-CPAN\Perl-CPAN-Modules \e[0m"
 sleep 2
-yum install perl-CPAN -y
-yum install perl-YAML -y
-yum install perl-libwww-perl -y
-yum install perl-DBI -y
-yum install perl-DBD-MySQL -y
-yum install perl-GD -y
+yum -y install perl-CPAN perl-YAML perl-libwww-perl install perl-DBI perl-DBD-MySQL perl-GD
 
 perl -MCPAN -e 'my $c = "CPAN::HandleConfig"; $c->load(doit => 1, autoconfig => 1); $c->edit(prerequisites_policy => "follow"); $c->edit(build_requires_install_policy => "yes"); $c->commit' 
 
