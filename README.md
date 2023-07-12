@@ -16,6 +16,8 @@ HOW TO INSTALL :
 ## root permission needed
 sudo su
 
+cd /usr/src
+
 yum -y install wget
 
 wget https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/install.sh
@@ -25,9 +27,11 @@ chmod +x install.sh
 ./install.sh
 
 ## alternatively if not working use git clone
-yum -y install git
+sudo su
 
 cd /usr/src
+
+yum -y install git
 
 git clone https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.git
 
