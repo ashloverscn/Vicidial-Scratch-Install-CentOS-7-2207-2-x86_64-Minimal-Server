@@ -59,6 +59,7 @@ sleep 2
 echo -e "\e[0;32m Update server ip \e[0m"
 sleep 2
 /usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=10.10.10.15
+/usr/share/astguiclient/ADMIN_audio_store_sync.pl --upload
 
 echo -e "\e[0;32m Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server Installation Complete! \e[0m"
 echo -e "\e[0;32m System will REBOOT in 50 Seconds \e[0m"
