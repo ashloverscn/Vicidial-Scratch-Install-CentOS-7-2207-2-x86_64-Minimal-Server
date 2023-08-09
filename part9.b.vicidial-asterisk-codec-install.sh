@@ -186,5 +186,9 @@ else
   echo "  Asterisk not running, skipping module load"
 fi
 
+chmod  +x /usr/lib/asterisk/modules/codec_g729.so
+asterisk -rc "module load codec_g729.so"
+asterisk -rx "module load codec_g729.so"
+
 echo "  Finished"
 echo
