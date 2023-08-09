@@ -186,9 +186,6 @@ else
   echo "  Asterisk not running, skipping module load"
 fi
 
-asterisk -rx "module unload codec_g729.so"
-asterisk -rx "module load codec_g729.so"
-
 echo "  Finished"
 echo
 
