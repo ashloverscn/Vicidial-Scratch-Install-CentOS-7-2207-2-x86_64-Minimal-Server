@@ -103,6 +103,7 @@ echo "" > /etc/httpd/conf.d/0000-default-ssl.conf
 \cp -r ./0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf
 #\cp -r /usr/src/0000-default.conf /etc/httpd/conf.d/0000-default.conf
 #\cp -r /usr/src/0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf
+mv /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.bak
 
 echo -e "\e[0;32m Configure PHP PHP.ini file \e[0m"
 sleep 2
