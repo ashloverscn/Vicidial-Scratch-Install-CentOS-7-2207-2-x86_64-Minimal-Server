@@ -89,6 +89,20 @@ echo "" > /etc/httpd/conf/httpd.conf
 \cp -r ./httpd.conf /etc/httpd/conf/httpd.conf
 #\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
 
+echo -e "\e[0;32m Configure Httpd\Apache2 https SSL \e[0m"
+sleep 2
+
+cd /usr/src
+\cp -r /etc/httpd/conf.d/0000-default.conf /etc/httpd/conf.d/0000-default.conf.original
+\cp -r /etc/httpd/conf.d/0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf.original
+echo "" > /etc/httpd/conf.d/0000-default.conf
+echo "" > /etc/httpd/conf.d/0000-default-ssl.conf
+#wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/0000-default.conf
+#wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/0000-default-ssl.conf
+\cp -r ./0000-default.conf /etc/httpd/conf.d/0000-default.conf
+\cp -r ./0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf
+#\cp -r /usr/src/0000-default.conf /etc/httpd/conf.d/0000-default.conf
+#\cp -r /usr/src/0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf
 
 echo -e "\e[0;32m Configure PHP PHP.ini file \e[0m"
 sleep 2
