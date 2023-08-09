@@ -66,7 +66,8 @@ timedatectl set-timezone Asia/Kolkata
 ./part6.*.sh
 ./part7.*.sh
 ./part8.*.sh
-./part9.*.sh
+./part9.a.*.sh
+./part9.b.*.sh
 ./part10.*.sh
 
 
