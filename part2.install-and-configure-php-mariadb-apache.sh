@@ -78,6 +78,8 @@ echo "" > /etc/my.cnf
 \cp -r ./my.cnf /etc/my.cnf
 #\cp -r /usr/src/my.cnf /etc/my.cnf 
 
+echo -e "\e[0;32m Load Self-Signed Certificates for Httpd\Apache2 \e[0m"
+sleep 2
 
 echo -e "\e[0;32m Configure Httpd\Apache2 httpd.conf file \e[0m"
 sleep 2
