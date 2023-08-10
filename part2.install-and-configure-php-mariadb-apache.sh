@@ -81,6 +81,7 @@ echo "" > /etc/my.cnf
 echo -e "\e[0;32m Load Self-Signed Certificates for Httpd\Apache2 \e[0m"
 sleep 2
 
+cd /usr/src
 rm -rf /etc/httpd/ssl.crt/vicibox.crt
 rm -rf /etc/httpd/ssl.key/vicibox.key
 mkdir /etc/httpd/ssl.crt
