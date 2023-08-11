@@ -20,11 +20,22 @@ else
 	tar -xvzf dahdi-linux-complete-$ver+$ver.tar.gz
 	cd dahdi-linux-complete-$ver+$ver
 fi
+
 make all
 make install
 make config
+make install-config
+yum -y install dahdi-tools-libs
 modprobe dahdi
 modprobe dahdi_dummy
 dahdi_genconf -v
 dahdi_cfg -v
 
+cd tools
+make clean
+make all
+make install
+make install-config
+
+cd /etc/dahdi
+mv system.conf.sample system.conf
