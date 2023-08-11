@@ -21,6 +21,8 @@ else
 	cd dahdi-linux-complete-$ver+$ver
 fi
 
+#sed -i 's/netif_napi_add(netdev, &wc->napi, &wctc4xxp_poll, 64);/netif_napi_add(netdev, &wc->napi, wctc4xxp_poll);/g' /usr/src/dahdi-linux-complete-3.2.0+3.2.0/linux/drivers/dahdi/wctc4xxp/base.c
+
 make all
 make install
 make config
