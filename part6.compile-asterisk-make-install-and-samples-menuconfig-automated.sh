@@ -30,4 +30,4 @@ menuselect/menuselect --enable res_srtp menuselect.makeopts
 make -j ${JOBS} all
 make install
 make samples
-
+make config
