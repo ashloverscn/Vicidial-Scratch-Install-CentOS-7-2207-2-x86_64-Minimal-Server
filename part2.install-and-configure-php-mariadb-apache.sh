@@ -99,7 +99,7 @@ echo "" > /etc/httpd/conf/httpd.conf
 \cp -r ./httpd.conf /etc/httpd/conf/httpd.conf
 #\cp -r /usr/src/httpd.conf /etc/httpd/conf/httpd.conf
 
-#echo -e "\e[0;32m Configure Httpd\Apache2 https-SSL \e[0m"
+echo -e "\e[0;32m Configure Httpd\Apache2 https-SSL \e[0m"
 sleep 2
 
 cd /usr/src
