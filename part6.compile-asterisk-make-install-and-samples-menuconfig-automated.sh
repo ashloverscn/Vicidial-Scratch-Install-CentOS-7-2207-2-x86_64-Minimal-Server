@@ -1,9 +1,13 @@
 #!/bin/sh
 #ver=13.29.2
-#oem=-vici
+#oem=0
+#oem=1
+#subdr=required-apps
+#subdr=beta-apps
+subdr=beta-apps
 ver=16.19.1
 oem=0
-subdr=required-apps
+
 echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
 sleep 2
 cd /usr/src
@@ -22,9 +26,9 @@ tar -xvzf asterisk-$ver-patch.tar.gz
 patch -p0 < asterisk-16.30.1-patch
 
 else
-wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver$oem.tar.gz
-tar -xvzf asterisk-$ver$oem.tar.gz
-cd asterisk-$ver$oem
+wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
+tar -xvzf asterisk-$ver-vici.tar.gz
+cd asterisk-$ver-vici
 
 fi
 
