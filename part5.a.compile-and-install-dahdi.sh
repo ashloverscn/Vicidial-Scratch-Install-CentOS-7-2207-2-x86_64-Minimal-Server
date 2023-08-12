@@ -1,6 +1,6 @@
 #!/bin/sh
 ver=3.2.0
-vici=0
+oem=0
 
 echo -e "\e[0;32m Install Dahdi Audio_CODEC Driver v$ver \e[0m"
 sleep 2
@@ -10,7 +10,7 @@ cd /usr/src
 #yum remove dahdi-tools* -y
 yum install dahdi* -y
 yum install dahdi-tools* -y
-if [ $vici -eq 1 ]
+if [ $oem -eq 1 ]
 then
 	wget http://download.vicidial.com/required-apps/dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
 	tar -xvzf dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
