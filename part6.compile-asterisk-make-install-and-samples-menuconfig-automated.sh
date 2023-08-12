@@ -19,7 +19,7 @@ yum install asterisk -y
 yum install asterisk-* -y
 if [ $oem -eq 1 ]
 then
-wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
+wget -O asterisk-$ver-vici.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
 tar -xvzf asterisk-$ver-vici.tar.gz
 cd asterisk-$ver-vici
 
