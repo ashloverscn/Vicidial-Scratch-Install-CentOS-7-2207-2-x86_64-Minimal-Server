@@ -11,7 +11,7 @@ export LC_ALL=C
 systemctl disable firewalld
 systemctl stop firewalld
 #disable ipv6 system-wide 
-echo "" > /etc/sysctl.conf
+#echo "" > /etc/sysctl.conf
 #if already present then dont add the lines 
 #sed -i -e '$a\
 #\
