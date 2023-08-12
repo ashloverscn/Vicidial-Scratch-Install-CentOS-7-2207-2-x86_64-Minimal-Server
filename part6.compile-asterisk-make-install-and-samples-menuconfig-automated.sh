@@ -4,6 +4,7 @@
 #oem=1
 #subdr=required-apps
 #subdr=beta-apps
+#ver=16.17.0
 subdr=beta-apps
 ver=16.19.1
 oem=0
