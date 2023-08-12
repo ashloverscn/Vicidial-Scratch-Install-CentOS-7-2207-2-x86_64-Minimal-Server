@@ -76,14 +76,19 @@ cpanm File::HomeDir
 cpanm File::Which
 cpanm CPAN::Meta::Requirements
 cpanm CPAN
+cpanm Tk::TableMatrix
+cpanm RPM::Specfile
 cpanm YAML
 cpanm MD5
+cpanm String::CRC
 cpanm Digest::MD5
 cpanm Digest::SHA1
-#cpanm readline
+#cpanm readline --force
 cpanm Bundle::CPAN
 cpanm DBI
 cpanm DBD::mysql
+cpanm Net::Address::IP::Local
+cpanm Net::Address::IPv4::Local
 cpanm Net::Telnet
 cpanm Time::HiRes
 cpanm Net::Server
@@ -101,8 +106,10 @@ cpanm Getopt::Long
 cpanm Net::Domain
 cpanm Term::ReadKey
 cpanm Term::ANSIColor
+cpanm Term::ReadLine::Gnu
 cpanm Spreadsheet::XLSX
 cpanm Spreadsheet::Read
+cpanm Spreadsheet::ReadSXC
 cpanm LWP::UserAgent
 cpanm HTML::Entities
 cpanm HTML::Strip
