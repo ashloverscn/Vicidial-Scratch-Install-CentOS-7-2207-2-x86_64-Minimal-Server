@@ -13,9 +13,13 @@ yum install asterisk -y
 yum install asterisk-* -y
 wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver$oem.tar.gz
 #wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
+#https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16.30.1.tar.gz
 tar -xvzf asterisk-$ver$oem.tar.gz
 cd asterisk-$ver$oem
 cd asterisk-$ver
+#wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16.30.1-patch.tar.gz
+#tar -xvzf asterisk-16.30.1-patch.tar.gz
+#patch -p0 < asterisk-16.30.1-patch
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
