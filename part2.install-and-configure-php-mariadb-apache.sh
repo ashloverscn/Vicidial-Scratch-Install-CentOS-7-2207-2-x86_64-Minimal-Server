@@ -96,7 +96,7 @@ mkdir /etc/httpd/ssl.key
 \cp -r ./vicibox.crt /etc/httpd/ssl.crt/vicibox.crt
 \cp -r ./vicibox.key /etc/httpd/ssl.key/vicibox.key
 
-echo -e "\e[0;32m Configure Httpd\Apache2 https \e[0m"
+echo -e "\e[0;32m Configure Httpd\Apache2 https-ssl conf.d files \e[0m"
 sleep 2
 
 cd /usr/src
