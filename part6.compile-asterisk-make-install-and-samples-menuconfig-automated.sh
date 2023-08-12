@@ -6,7 +6,7 @@
 #subdr=required-apps
 #subdr=beta-apps
 subdr=beta-apps
-ver=16.19.1
+ver=16.30.1
 oem=0
 
 echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
@@ -29,7 +29,7 @@ tar -xvzf asterisk-$ver.tar.gz
 cd asterisk-$ver
 wget https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver-patch.tar.gz
 tar -xvzf asterisk-$ver-patch.tar.gz
-patch -p0 < asterisk-$ver.1-patch
+patch -p0 < asterisk-$ver-patch
 
 fi
 
