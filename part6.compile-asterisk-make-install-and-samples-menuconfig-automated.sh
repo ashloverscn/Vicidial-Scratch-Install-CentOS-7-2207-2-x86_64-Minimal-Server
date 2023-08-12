@@ -1,7 +1,8 @@
 #!/bin/sh
 #ver=13.29.2
-ver=16.17.0
-oem=-vici
+#oem=-vici
+ver=16.19.1
+oem=0
 subdr=required-apps
 echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
 sleep 2
@@ -11,15 +12,21 @@ cd /usr/src
 #yum remove asterisk-* -y
 yum install asterisk -y
 yum install asterisk-* -y
+if [ $oem -eq 0 ]
+then
+wget -O asterisk-$ver.tar.gz https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver.tar.gz
+tar -xvzf asterisk-$ver.tar.gz
+cd asterisk-$ver
+wget https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver-patch.tar.gz
+tar -xvzf asterisk-$ver-patch.tar.gz
+patch -p0 < asterisk-16.30.1-patch
+
+else
 wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver$oem.tar.gz
-#wget http://download.vicidial.com/beta-apps/asterisk-16.17.0-vici.tar.gz
-#https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16.30.1.tar.gz
 tar -xvzf asterisk-$ver$oem.tar.gz
 cd asterisk-$ver$oem
-cd asterisk-$ver
-#wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16.30.1-patch.tar.gz
-#tar -xvzf asterisk-16.30.1-patch.tar.gz
-#patch -p0 < asterisk-16.30.1-patch
+
+fi
 
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
