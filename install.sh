@@ -51,7 +51,13 @@ chmod +x *.sh
 pwd
 
 ###########################################################################################################
+echo -e "\e[0;32m Set TimeZone Asia/Kolkata \e[0m"
+sleep 2
 timedatectl set-timezone Asia/Kolkata
+
+echo -e "\e[0;32m Installation Started \e[0m"
+sleep 2
+
 ./part0.*.sh
 ./part1.*.sh
 ./part2.*.sh
