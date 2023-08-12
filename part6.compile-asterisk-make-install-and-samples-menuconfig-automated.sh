@@ -16,19 +16,19 @@ cd /usr/src
 #yum remove asterisk-* -y
 yum install asterisk -y
 yum install asterisk-* -y
-if [ $oem -eq 0 ]
+if [ $oem -eq 1 ]
 then
+wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
+tar -xvzf asterisk-$ver-vici.tar.gz
+cd asterisk-$ver-vici
+
+else
 wget -O asterisk-$ver.tar.gz https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver.tar.gz
 tar -xvzf asterisk-$ver.tar.gz
 cd asterisk-$ver
 wget https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver-patch.tar.gz
 tar -xvzf asterisk-$ver-patch.tar.gz
 patch -p0 < asterisk-16.30.1-patch
-
-else
-wget -O asterisk-$ver$oem.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
-tar -xvzf asterisk-$ver-vici.tar.gz
-cd asterisk-$ver-vici
 
 fi
 
