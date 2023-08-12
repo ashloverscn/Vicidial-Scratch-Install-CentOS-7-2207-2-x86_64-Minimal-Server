@@ -29,7 +29,8 @@ tar -xvzf asterisk-$ver.tar.gz
 cd asterisk-$ver
 wget https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver-patch.tar.gz
 tar -xvzf asterisk-$ver-patch.tar.gz
-patch -p0 < asterisk-$ver-patch
+#patch if needed
+#patch -p0 < asterisk-$ver-patch
 
 fi
 
