@@ -45,9 +45,9 @@ yum -y update
 echo -e "\e[0;32m Install and configure MariaDB\SQL \e[0m"
 sleep 2
 
-yum -y remove sqlite-devel
+#yum -y remove sqlite-devel
 
-yum -y remove mariadb-server mariadb MariaDB-compat
+#yum -y remove mariadb-server mariadb MariaDB-compat
 
 yum -y install sqlite-devel
 
