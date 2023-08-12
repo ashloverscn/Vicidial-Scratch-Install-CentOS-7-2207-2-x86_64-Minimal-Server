@@ -101,7 +101,6 @@ echo "" > /etc/httpd/conf/httpd.conf
 
 echo -e "\e[0;32m Configure Httpd\Apache2 https-SSL \e[0m"
 sleep 2
-
 cd /usr/src
 \cp -r /etc/httpd/conf.d/0000-default.conf /etc/httpd/conf.d/0000-default.conf.original
 \cp -r /etc/httpd/conf.d/0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf.original
