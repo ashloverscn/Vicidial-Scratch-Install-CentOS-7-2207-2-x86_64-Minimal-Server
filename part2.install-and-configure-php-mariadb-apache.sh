@@ -81,7 +81,7 @@ echo "" > /etc/my.cnf
 echo -e "\e[0;32m Configure Httpd\Apache2 httpd.conf file \e[0m"
 sleep 2
 
-cd /usr/src
+cd /usr/src/
 \cp -r /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.original
 echo "" > /etc/httpd/conf/httpd.conf
 #wget -O /usr/src/httpd.conf https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/httpd.conf
@@ -124,7 +124,6 @@ echo "" > /etc/php.ini
 #wget -O /usr/src/php.ini https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/php.ini
 \cp -r ./php.ini /etc/php.ini
 #\cp -r /usr/src/php.ini /etc/php.ini
-
 
 echo -e "\e[0;32m create index.html in webroot for redirecting to welcome.php \e[0m"
 sleep 2
