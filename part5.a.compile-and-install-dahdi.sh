@@ -41,3 +41,5 @@ make install-config
 
 cd /etc/dahdi
 mv system.conf.sample system.conf
+systemctl enable dahdi && systemctl start dahdi
+
