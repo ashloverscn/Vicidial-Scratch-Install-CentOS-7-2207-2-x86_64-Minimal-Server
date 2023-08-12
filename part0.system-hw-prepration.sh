@@ -26,6 +26,7 @@ service network restart
 #enable verbose boot 
 sed -i 's/rhgb//g' /etc/default/grub
 sed -i 's/quiet//g' /etc/default/grub
+sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #reboot
