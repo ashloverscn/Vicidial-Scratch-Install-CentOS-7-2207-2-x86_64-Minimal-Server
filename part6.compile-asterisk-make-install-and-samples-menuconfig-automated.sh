@@ -1,5 +1,6 @@
 #!/bin/sh
-ver=13.29.2
+#ver=13.29.2
+ver=16.17.0
 oem=-vici
 subdr=required-apps
 echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
@@ -31,3 +32,7 @@ make -j ${JOBS} all
 make install
 make samples
 make config
+
+systemctl enable asterisk && systemctl start asterisk
+
+
