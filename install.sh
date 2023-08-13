@@ -55,7 +55,7 @@ sleep 2
 timedatectl set-timezone Asia/Kolkata
 
 ###########################################################################################################
-echo -e "\e[0;32m Installation Started \e[0m"
+echo -e "\e[0;32m Installation Started from part0.*.sh \e[0m"
 sleep 2
 
 mv /usr/src/install.sh /usr/src/install1.sh
