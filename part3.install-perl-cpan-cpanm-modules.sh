@@ -21,7 +21,6 @@ cpanm -f File::HomeDir
 cpanm -f File::Which
 cpanm CPAN::Meta::Requirements
 cpanm -f CPAN
-cpanm -f readline
 cpanm Tk::TableMatrix
 cpanm RPM::Specfile
 cpanm YAML
@@ -80,7 +79,6 @@ cpanm File::HomeDir
 cpanm File::Which
 cpanm CPAN::Meta::Requirements
 cpanm CPAN
-cpanm readline
 cpanm Tk::TableMatrix
 cpanm RPM::Specfile
 cpanm YAML
