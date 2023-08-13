@@ -26,6 +26,9 @@ chmod +x install.sh
 
 ./install.sh
 
+# run ./install again after reboot
+./install.sh
+
 ## alternatively if not working use git clone
 sudo su
 
@@ -40,5 +43,10 @@ cd Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server
 chmod +x install.sh
 
 ./install.sh
+
+# run ./install again after reboot
+./install.sh
+
+
 
 
