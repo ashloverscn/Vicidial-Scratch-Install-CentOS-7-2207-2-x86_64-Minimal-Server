@@ -12,7 +12,7 @@ sleep 2
 #to transfer backup to a new server
 #\scp -r /usr/src/complete_backup_vicibox11_45.142.112.124.sql root@45.142.112.126:/usr/src/
 
-sed -i 's/45.142.112.124/$serveripadd/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
+sed -i 's/45.142.112.124/"$serveripadd"/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
 #sed -i 's/oldhostname/$newhostname/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
 
 mysql -uroot -e "drop database asterisk"
