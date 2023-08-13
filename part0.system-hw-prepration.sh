@@ -14,6 +14,8 @@ sleep 2
 yum -y install firewalld
 systemctl enable firewalld
 
+rm -rf /etc/firewalld.bak/
+rm -rf /usr/lib/firewalld.bak/
 mv /etc/firewalld/ /etc/firewalld.bak/
 mv /usr/lib/firewalld/ /usr/lib/firewalld.bak/
 mkdir /etc/firewalld/
