@@ -24,6 +24,7 @@ mkdir /usr/lib/firewalld/
 \cp -r /usr/src/firewalld/usr-lib-firewalld/* /usr/lib/firewalld/
 
 systemctl start firewalld
+systemctl status firewalld
 firewall-cmd --reload
 
 #echo -e "\e[0;32m Disable ipv6 network \e[0m"
