@@ -68,7 +68,7 @@ cpanm Crypt::Eksblowfish::Bcrypt
 cpanm Crypt::RC4
 cpanm Text::CSV
 cpanm Text::CSV_XS
-cpanm readline --force
+cpan -i readline --force
 
 echo -e "\e[0;32m Verify all cpan-modules installed successfuly \e[0m"
 sleep 2
@@ -127,6 +127,6 @@ cpanm Crypt::Eksblowfish::Bcrypt
 cpanm Crypt::RC4
 cpanm Text::CSV
 cpanm Text::CSV_XS
-cpanm readline
+cpan -i readline
 
 
