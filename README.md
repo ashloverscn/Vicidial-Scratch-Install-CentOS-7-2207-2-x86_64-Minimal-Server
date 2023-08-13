@@ -18,7 +18,7 @@ sudo su
 
 cd /usr/src
 
-yum -y install wget
+yum -y install wget git
 
 wget https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/install.sh
 
@@ -31,7 +31,7 @@ sudo su
 
 cd /usr/src
 
-yum -y install git
+yum -y install wget git
 
 git clone https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server.git
 
