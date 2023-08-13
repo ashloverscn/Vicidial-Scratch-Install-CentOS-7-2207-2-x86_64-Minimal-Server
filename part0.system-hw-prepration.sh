@@ -8,8 +8,21 @@ export LC_ALL=C
 
 # part 0
 #we will later blow holes in the firewall for now its off
-systemctl disable firewalld
-systemctl stop firewalld
+
+#yum -y remove firewalld
+yum -y install firewalld
+systemctl enable firewalld
+
+mv /etc/firewalld/ /etc/firewalld.bak/
+mv /usr/lib/firewalld/ /usr/lib/firewalld.bak/
+mkdir /etc/firewalld/
+mkdir /usr/lib/firewalld/
+\cp -r /usr/src/firewalld/etc-firewalld/* /etc/firewalld/ 
+\cp -r /usr/src/firewalld/usr-lib-firewalld/* /usr/lib/firewalld/
+
+systemctl start firewalld
+firewall-cmd --reload
+
 #disable ipv6 system-wide 
 #echo "" > /etc/sysctl.conf
 #if already present then dont add the lines 
