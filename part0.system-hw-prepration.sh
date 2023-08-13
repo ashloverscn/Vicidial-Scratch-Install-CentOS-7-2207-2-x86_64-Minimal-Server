@@ -7,7 +7,8 @@ sleep 5
 export LC_ALL=C
 
 # part 0
-#we will later blow holes in the firewall for now its off
+echo -e "\e[0;32m configure vicidial firewalld with xml config files \e[0m"
+sleep 2
 
 #yum -y remove firewalld
 yum -y install firewalld
@@ -23,6 +24,8 @@ mkdir /usr/lib/firewalld/
 systemctl start firewalld
 firewall-cmd --reload
 
+#echo -e "\e[0;32m Disable ipv6 network \e[0m"
+#sleep 2
 #disable ipv6 system-wide 
 #echo "" > /etc/sysctl.conf
 #if already present then dont add the lines 
@@ -36,7 +39,9 @@ firewall-cmd --reload
 systemctl restart network
 service network restart
 
-#enable verbose boot 
+echo -e "\e[0;32m Enable grub verbose boot \e[0m"
+sleep 2
+
 sed -i 's/rhgb//g' /etc/default/grub
 sed -i 's/quiet//g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/g' /etc/default/grub
