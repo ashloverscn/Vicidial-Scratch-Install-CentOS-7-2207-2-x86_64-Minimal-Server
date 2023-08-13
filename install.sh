@@ -75,7 +75,7 @@ sleep 2
 ./part9.a.*.sh
 ./part9.b.*.sh
 ./part10.*.sh
-
+wget -O /usr/src/install.sh https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/install.sh
 
 
 
