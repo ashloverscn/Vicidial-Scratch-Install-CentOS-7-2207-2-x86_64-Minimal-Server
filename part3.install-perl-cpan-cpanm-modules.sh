@@ -21,6 +21,7 @@ cpanm -f File::HomeDir
 cpanm -f File::Which
 cpanm CPAN::Meta::Requirements
 cpanm -f CPAN
+cpan -i readline --force
 cpanm Tk::TableMatrix
 cpanm RPM::Specfile
 cpanm YAML
@@ -72,7 +73,7 @@ cpanm Crypt::Eksblowfish::Bcrypt
 cpanm Crypt::RC4
 cpanm Text::CSV
 cpanm Text::CSV_XS
-cpan -i readline --force
+#cpan -i readline --force
 
 echo -e "\e[0;32m Verify all cpan-modules installed successfuly \e[0m"
 sleep 2
@@ -131,6 +132,6 @@ cpanm Crypt::Eksblowfish::Bcrypt
 cpanm Crypt::RC4
 cpanm Text::CSV
 cpanm Text::CSV_XS
-cpan -i readline
+cpanm readline
 
 
