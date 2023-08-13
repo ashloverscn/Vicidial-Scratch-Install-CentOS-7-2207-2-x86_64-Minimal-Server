@@ -7,7 +7,7 @@ sleep 5
 export LC_ALL=C
 
 # part 0
-echo -e "\e[0;32m configure vicidial firewalld with xml config files \e[0m"
+echo -e "\e[0;32m Configure vicidial firewalld with xml config files \e[0m"
 sleep 2
 
 #yum -y remove firewalld
