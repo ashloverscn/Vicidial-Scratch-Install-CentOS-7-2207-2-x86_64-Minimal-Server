@@ -5,8 +5,8 @@ sleep 2
 yum -y install perl-CPAN perl-YAML perl-libwww-perl perl-DBI perl-DBD-MySQL perl-GD perl-Env perl-Term-ReadLine-Gnu perl-SelfLoader perl-open.noarch
 
 #cpan o conf init
-
 #rm -rf /usr/share/perl5/CPAN/Config.pm
+#if [ -d ~/.cpan ]; then rm -fR ~/.cpan ; echo y | cpan > /dev/null 2>&1; fi
 
 perl -MCPAN -e 'my $c = "CPAN::HandleConfig"; $c->load(doit => 1, autoconfig => 1); $c->edit(prerequisites_policy => "follow"); $c->edit(build_requires_install_policy => "yes"); $c->commit' 
 
