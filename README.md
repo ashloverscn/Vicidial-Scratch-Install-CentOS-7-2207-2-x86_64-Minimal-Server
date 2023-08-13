@@ -26,8 +26,8 @@ chmod +x install.sh
 
 ./install.sh
 
-# run ./install again after reboot
-./install.sh
+# run install again after reboot
+/usr/src/./install.sh
 
 ## alternatively if not working use git clone
 sudo su
@@ -44,8 +44,9 @@ chmod +x install.sh
 
 ./install.sh
 
-# run ./install again after reboot
-./install.sh
+# run install again after reboot
+/usr/src/./install.sh
+
 
 
 
