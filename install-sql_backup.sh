@@ -1,14 +1,15 @@
+#to backup asterisk database into sql file 
+#mysqldump asterisk > /usr/src/complete_backup_45.142.112.120.sql
+#to transfer backup to a new server
+#\scp -r /usr/src/complete_backup_45.142.112.120.sql root@45.142.112.126:/usr/src/
+
 #input server ip to ipvariable
 
 cd /usr/src
 #sed $ipvariable to ip > backup.sql
 
 #sed $hostvariable to host-domain > backup.sql
-
-#to backup asterisk database into sql file 
-#mysqldump asterisk > /usr/src/complete_backup_45.142.112.120.sql
-#to transfer backup to a new server
-#\scp -r /usr/src/complete_backup_45.142.112.120.sql root@45.142.112.126:/usr/src/
+sed -i 's/45.142.112.120/45.142.112.126/g' /usr/src/complete_backup_45.142.112.120.sql
 
 mysql -uroot -e "drop database asterisk"
 mysql -uroot -e "create database asterisk"
