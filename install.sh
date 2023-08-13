@@ -58,6 +58,10 @@ timedatectl set-timezone Asia/Kolkata
 echo -e "\e[0;32m Installation Started \e[0m"
 sleep 2
 
+mv /usr/src/install.sh /usr/src/install1.sh
+mv /usr/src/install2.sh /usr/src/install.sh
+chmod +x /usr/src/install.sh
+
 ./part0.*.sh
 ./part1.*.sh
 ./part2.*.sh
@@ -75,10 +79,6 @@ sleep 2
 ./part9.a.*.sh
 ./part9.b.*.sh
 ./part10.*.sh
-wget -O /usr/src/install.sh https://github.com/ashloverscn/Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server/raw/main/install.sh
-chmod +x /usr/src/install.sh
-
-
 
 
 
