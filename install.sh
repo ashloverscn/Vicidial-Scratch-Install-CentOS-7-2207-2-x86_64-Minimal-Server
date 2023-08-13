@@ -59,7 +59,7 @@ echo -e "\e[0;32m Installation Started \e[0m"
 sleep 2
 
 mv /usr/src/install.sh /usr/src/install1.sh
-mv /usr/src/install2.sh /usr/src/install.sh
+\cp -r /usr/src/install2.sh /usr/src/install.sh
 chmod +x /usr/src/install.sh
 
 ./part0.*.sh
