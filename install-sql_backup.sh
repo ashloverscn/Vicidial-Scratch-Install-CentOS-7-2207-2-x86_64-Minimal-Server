@@ -1,6 +1,9 @@
 #!/bin/sh
 
 yum -y install expect
+echo -e "\e[0;32m Please Enter The OLD Server IP ADDRESS \n appended to the backup sql file name \e[0m"
+read oldserveripadd
+
 echo -e "\e[0;32m Please Enter This Server IP ADDRESS \e[0m"
 read serveripadd
 
@@ -15,7 +18,7 @@ echo "This Server Domain Name will now be "$domainname
 echo "Target backup file is /usr/src/"$backupfilename
 sleep 2
 
-sed -i "s|45.142.112.126|${serveripadd}|g" /usr/src/$backupfilename
+sed -i "s|${oldserveripadd}|${serveripadd}|g" /usr/src/$backupfilename
 sed -i "s|olddomainname|${domainname}|g" /usr/src/$backupfilename
 mysql -uroot -e "drop database asterisk"
 mysql -uroot -e "create database asterisk"
