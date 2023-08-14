@@ -7,6 +7,7 @@ oem=0
 echo -e "\e[0;32m Install Dahdi Audio_CODEC Driver v$ver \e[0m"
 sleep 2
 cd /usr/src
+yum install kernel-devel-$(uname -r) -y
 #rm -rf dahdi-linux-complete*
 #yum remove dahdi* -y
 #yum remove dahdi-tools* -y
