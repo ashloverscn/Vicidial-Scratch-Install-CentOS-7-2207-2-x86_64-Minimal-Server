@@ -21,6 +21,7 @@ sleep 2
 
 sed -i "s|${oldserveripadd}|${serveripadd}|g" /usr/src/$backupfilename
 sed -i "s|olddomainname|${domainname}|g" /usr/src/$backupfilename
+
 mysql -uroot -e "drop database asterisk"
 mysql -uroot -e "create database asterisk"
 mysql -uroot asterisk < /usr/src/$backupfilename
