@@ -34,7 +34,7 @@ mysql -uroot -e "flush privileges;"
 mysql -uroot -e "SET GLOBAL connect_timeout=60;"
 mysql -uroot asterisk < /usr/src/astguiclient/trunk/extras/MySQL_AST_CREATE_tables.sql
 mysql -uroot asterisk < /usr/src/astguiclient/trunk/extras/first_server_install.sql
-mysql -uroot -e "use asterisk ; update servers set asterisk_version='13.29.2';"
+mysql -uroot -e "use asterisk ; update servers set asterisk_version='16.30.0';"
 mysql -uroot -e "use asterisk ; show tables;"
 sleep 5
 
