@@ -10,13 +10,9 @@ read domainname
 echo -e "\e[0;32m Please Enter the backup sql file name \e[0m"
 read backupfilename
 
-echo -e "\e[0;32m Please Enter user-phone password \e[0m"
-read userphonepass
-
 echo "This Server ip Address will now be "$serveripadd
 echo "This Server Domain Name will now be "$domainname
 echo "Target backup file is /usr/src/"$backupfilename
-echo "This Server New User and Phone password will now be "$userphonepass
 sleep 2
 
 sed -i "s|45.142.112.126|${serveripadd}|g" /usr/src/$backupfilename
@@ -26,7 +22,15 @@ mysql -uroot -e "create database asterisk"
 mysql -uroot asterisk < /usr/src/$backupfilename
 mysql -u root -f asterisk < /usr/src/astguiclient/trunk/extras/upgrade_2.14.sql
 
-#asterisk -rx "core show version"
+echo -e "\e[0;32m Please Enter New Admin User 6666 password \e[0m"
+read admin6666pass
+
+echo -e "\e[0;32m Please Enter user-phone password \e[0m"
+read userphonepass
+
+echo "This Server New User and Phone password will now be "$userphonepass
+echo "This Server New Admin User 6666 password will now be "$admin6666pass
+
 #mysql -uroot -e "use asterisk ; select asterisk_version from servers"
 #mysql -uroot -e "use asterisk ; update servers set asterisk_version='xx.xx.x-vici'"
 
