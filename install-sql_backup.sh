@@ -19,16 +19,11 @@ echo "Target backup file is /usr/src/"$backupfilename
 echo "This Server New User and Phone password will now be "$userphonepass
 sleep 2
 
-#single qutote sed will not work with variable so using double quote and pipe
-#sed -i 's/45.142.112.124/45.142.112.126/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
-#sed -i 's/oldhostname/newhostname/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
-
-sed -i "s|45.142.112.126|${serveripadd}|g" /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
-sed -i "s|olddomainname|${domainname}|g" /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
-
+sed -i "s|45.142.112.126|${serveripadd}|g" /usr/src/$backupfilename
+sed -i "s|olddomainname|${domainname}|g" /usr/src/$backupfilename
 mysql -uroot -e "drop database asterisk"
 mysql -uroot -e "create database asterisk"
-mysql -uroot asterisk < /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
+mysql -uroot asterisk < /usr/src/$backupfilename
 mysql -u root -f asterisk < /usr/src/astguiclient/trunk/extras/upgrade_2.14.sql
 
 #asterisk -rx "core show version"
