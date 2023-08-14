@@ -28,12 +28,30 @@ read admin6666pass
 echo -e "\e[0;32m Please Enter user-phone password \e[0m"
 read userphonepass
 
-echo "This Server New User and Phone password will now be "$userphonepass
 echo "This Server New Admin User 6666 password will now be "$admin6666pass
+echo "This Server New User and Phone password will now be "$userphonepass
 
-#mysql -uroot -e "use asterisk ; select asterisk_version from servers"
-#mysql -uroot -e "use asterisk ; update servers set asterisk_version='xx.xx.x-vici'"
+mysql -uroot -e "use asterisk ; select asterisk_version from servers"
+mysql -uroot -e "use asterisk ; update servers set asterisk_version='16.30.0'"
+mysql -uroot -e "use asterisk ; select asterisk_version from servers"
 
+mysql -uroot -e "use asterisk ; select pass from vicidial_users where user_level=9"
+mysql -uroot -e "use asterisk ; update vicidial_users set pass='$admin6666pass' where user_level=9"
+mysql -uroot -e "use asterisk ; select pass from vicidial_users where user_level=9"
+
+mysql -uroot -e "use asterisk ; select user,pass,phone_login from vicidial_users"
+mysql -uroot -e "use asterisk ; update vicidial_users set pass='$userphonepass',phone_pass='$userphonepass' where user_level=1"
+mysql -uroot -e "use asterisk ; update vicidial_users set pass='donotedit',phone_pass='donotedit' where user='VDAD'"
+mysql -uroot -e "use asterisk ; update vicidial_users set pass='donotedit',phone_pass='donotedit' where user='VDCL'"
+mysql -uroot -e "use asterisk ; select user,pass,phone_login from vicidial_users"
+
+mysql -uroot -e "use asterisk ; select login,pass,conf_secret from phones"
+mysql -uroot -e "use asterisk ; update phones set pass='$userphonepass',conf_secret='$userphonepass'"
+mysql -uroot -e "use asterisk ; select login,pass,conf_secret from phones"
+
+echo -e "\e[0;32m All Admin6666 and User-Phones Password Updated Rebooting System in 10 seconds \e[0m"
+sleep 10 
+reboot 
 
 #to backup asterisk database into sql file 
 #mysqldump asterisk > /usr/src/complete_backup_vicibox11_45.142.112.124.sql
