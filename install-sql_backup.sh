@@ -13,6 +13,7 @@ read domainname
 echo -e "\e[0;32m Please Enter the backup sql file name \e[0m"
 read backupfilename
 
+echo "This is the OLD Server ip Address CONFIRM"$serveripadd
 echo "This Server ip Address will now be "$serveripadd
 echo "This Server Domain Name will now be "$domainname
 echo "Target backup file is /usr/src/"$backupfilename
