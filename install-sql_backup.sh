@@ -15,12 +15,12 @@ sleep 2
 #sed -i 's/45.142.112.124/45.142.112.126/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
 #sed -i 's/oldhostname/newhostname/g' /usr/src/complete_backup_vicibox11_45.142.112.124.sql
 
-sed -i "s|45.142.112.124|${serveripadd}|g" /usr/src/complete_backup_vicibox11_45.142.112.124.sql
-sed -i "s|olddomainname|${domainname}|g" /usr/src/complete_backup_vicibox11_45.142.112.124.sql
+sed -i "s|45.142.112.126|${serveripadd}|g" /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
+sed -i "s|olddomainname|${domainname}|g" /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
 
 mysql -uroot -e "drop database asterisk"
 mysql -uroot -e "create database asterisk"
-mysql -uroot asterisk < /usr/src/complete_backup_vicibox11_45.142.112.124.sql
+mysql -uroot asterisk < /usr/src/complete_backup_c7vicibox_45.142.112.126.sql
 mysql -u root -f asterisk < /usr/src/astguiclient/trunk/extras/upgrade_2.14.sql
 
 #asterisk -rx "core show version"
