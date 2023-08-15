@@ -11,7 +11,8 @@ mv /etc/fail2ban/jail.local /etc/fail2ban/jail.local.bak
 systemctl start fail2ban
 
 yum -y install expect
-echo -e "\e[0;32m Please Enter This Server IP ADDRESS to avoid self ban \e[0m"
+
+
 read serveripadd
 
 echo "fail2ban self ignore ip will be set to "$serveripadd
@@ -22,5 +23,9 @@ sed -i "s|ignoreip = 127.0.0.1|ignoreip = 127.0.0.1 ${serveripadd}|g" /etc/fail2
 systemctl restart fail2ban
 systemctl status fail2ban
 
+echo -e "\e[0;32m Please Enter This Server IP ADDRESS to avoid self ban \e[0m"
+sleep 2
+
 /usr/src/./jail_blackip.sh
+
 
