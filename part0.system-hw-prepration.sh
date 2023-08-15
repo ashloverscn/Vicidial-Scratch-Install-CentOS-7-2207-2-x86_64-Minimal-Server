@@ -27,7 +27,7 @@ systemctl start firewalld
 systemctl status firewalld
 firewall-cmd --reload
 
-echo -e "\e[0;32m Configure vicidial firewalld with xml config files \e[0m"
+echo -e "\e[0;32m Configure fail2ban for vicidial with jail.local file \e[0m"
 sleep 2
 
 #yum -y remove fail2ban
