@@ -1,5 +1,4 @@
-echo -e "\e[0;32m Configure fail2ban for vicidial with jail.local file \e[0m"
-sleep 2
+#!/bin/sh
 
 #yum -y remove fail2ban
 yum -y install fail2ban
