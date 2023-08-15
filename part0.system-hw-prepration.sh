@@ -52,6 +52,8 @@ sed -i "s|ignoreip = 127.0.0.1|ignoreip = 127.0.0.1 ${serveripadd}|g" /etc/fail2
 systemctl restart fail2ban
 systemctl status fail2ban
 
+/usr/src/./jail_blackip.sh
+
 #echo -e "\e[0;32m Disable ipv6 network \e[0m"
 #sleep 2
 #disable ipv6 system-wide 
