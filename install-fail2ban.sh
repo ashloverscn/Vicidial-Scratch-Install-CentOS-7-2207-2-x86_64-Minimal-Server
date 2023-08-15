@@ -21,11 +21,12 @@ sleep 5
 sed -i "s|ignoreip = 127.0.0.1|ignoreip = 127.0.0.1 ${serveripadd}|g" /etc/fail2ban/jail.local
 
 systemctl restart fail2ban
-systemctl status fail2ban
 
 echo -e "\e[0;32m Please Enter This Server IP ADDRESS to avoid self ban \e[0m"
 sleep 2
 
 /usr/src/./jail_blackip.sh
+
+systemctl status fail2ban
 
 
