@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -e "\e[0;32m Install RemiRepo PHP7 \e[0m"
+echo -e "\e[0;32m Install epel-release-latest-7 repo and Install RemiRepo PHP7 \e[0m"
 sleep 2
 
 #yum -y remove https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -16,6 +16,11 @@ yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
 
 yum-config-manager --enable remi-php74
+
+echo -e "\e[0;32m Configure fail2ban for vicidial with jail.local file \e[0m"
+sleep 2
+
+/usr/src/./install-fail2ban.sh
 
 echo -e "\e[0;32m Add MariaDB Repo \e[0m"
 sleep 2
