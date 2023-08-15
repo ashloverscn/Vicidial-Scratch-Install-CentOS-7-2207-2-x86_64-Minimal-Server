@@ -21,6 +21,9 @@ sleep 5
 
 sed -i "s|ignoreip = 127.0.0.1|ignoreip = 127.0.0.1 ${serveripadd}|g" /etc/fail2ban/jail.local
 
+echo -e "\e[0;32m jailing black ip list in fail2ban \e[0m"
+sleep 2
+
 /usr/src/./jail_blackip.sh
 
 systemctl restart fail2ban
