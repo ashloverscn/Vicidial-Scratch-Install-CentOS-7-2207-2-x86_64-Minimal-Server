@@ -7,6 +7,21 @@ sleep 5
 export LC_ALL=C
 
 # part 0
+#echo -e "\e[0;32m Disable ipv6 network \e[0m"
+#sleep 2
+#disable ipv6 system-wide 
+#echo "" > /etc/sysctl.conf
+#if already present then dont add the lines 
+#sed -i -e '$a\
+#\
+#net.ipv6.conf.all.disable_ipv6 = 1 \
+#net.ipv6.conf.default.disable_ipv6 = 1 \
+#net.ipv6.conf.enp0s3.disable_ipv6 = 1 \
+#' /etc/sysctl.conf
+
+systemctl restart network
+service network restart
+
 echo -e "\e[0;32m Configure vicidial firewalld with xml config files \e[0m"
 sleep 2
 
@@ -26,21 +41,6 @@ mkdir /usr/lib/firewalld/
 systemctl start firewalld
 systemctl status firewalld
 firewall-cmd --reload
-
-#echo -e "\e[0;32m Disable ipv6 network \e[0m"
-#sleep 2
-#disable ipv6 system-wide 
-#echo "" > /etc/sysctl.conf
-#if already present then dont add the lines 
-#sed -i -e '$a\
-#\
-#net.ipv6.conf.all.disable_ipv6 = 1 \
-#net.ipv6.conf.default.disable_ipv6 = 1 \
-#net.ipv6.conf.enp0s3.disable_ipv6 = 1 \
-#' /etc/sysctl.conf
-
-systemctl restart network
-service network restart
 
 echo -e "\e[0;32m Enable grub verbose boot \e[0m"
 sleep 2
