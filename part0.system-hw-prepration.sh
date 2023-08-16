@@ -50,4 +50,9 @@ sed -i 's/quiet//g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
+echo -e "\e[0;32m Enable PrintMotd file to show terminal welcome msg \e[0m"
+sleep 2
+
+/usr/src/./enable-PrintMotd.sh
+
 #reboot
