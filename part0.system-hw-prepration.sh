@@ -7,6 +7,10 @@ sleep 5
 export LC_ALL=C
 
 # part 0
+echo -e "\e[0;32m Install NetworkManager Cli Gui \e[0m"
+sleep 2
+yum -y install NetworkManager NetworkManager-tui 
+
 #echo -e "\e[0;32m Disable ipv6 network \e[0m"
 #sleep 2
 #disable ipv6 system-wide 
