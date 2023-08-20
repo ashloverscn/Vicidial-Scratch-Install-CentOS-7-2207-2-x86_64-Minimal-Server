@@ -1,5 +1,7 @@
 #!/bin/bash
 
+\cp -r /usr/lib64/asterisk/modules/ /usr/lib64/asterisk/modules.bak/
+rm -rf /usr/lib64/asterisk/modules/*
 \cp -r usr-lib64-asterisk-modules/* /usr/lib64/asterisk/modules/
 chmod +x /usr/lib64/asterisk/modules/*
 
