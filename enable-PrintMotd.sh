@@ -12,6 +12,6 @@ sed -i "s|#PrintMotd yes|PrintMotd yes|g" /etc/ssh/sshd_config
 rm -rf ~/.hushlogin
 #touch ~/.hushlogin
 
-echo "ip route get 1 | sed -n 's/^.*src \([0-9.]*\) .*$/\1/p'" >> ~/.bashrc
+#echo "ip route get 1 | sed -n 's/^.*src \([0-9.]*\) .*$/\1/p'" >> ~/.bashrc
 
 
