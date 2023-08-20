@@ -10,7 +10,7 @@ chmod +x /usr/lib64/asterisk/modules/*
 
 
 # Codecs installed from http://asterisk.hosting.lv/
-# Supports 64-bit Asterisk v.1.8, 11, 12, 13, 14, 15
+# Supports 64-bit Asterisk v.1.8, 11, 12, 13, 14, 15, 16, 17, 18
 
 # Get our variables
 CPUNAME="$(cut -d':' -f2 <<<`cat /proc/cpuinfo | grep 'model name' | sed -n 1p`)"
@@ -46,7 +46,7 @@ fi
 echo 
 echo "---  Asterisk G729/G723 codec installer for AMD and Intel 64-bit CPUs"
 echo "---  Written by James Pearson at ViciDial Group <jamesp@vicidial.com>"
-echo "---  Supports Asterisk v.1.8, 11, 12, 13, 14, and 15 only"
+echo "---  Supports Asterisk v.1.8, 11, 12, 13, 14, 15, 16, 18, and 18 only"
 echo "---  Please make sure you have internet connectivity to download codecs"
 echo
 
@@ -54,6 +54,18 @@ echo
 RAWASTVER=`$AST_BIN -V`
 RAWASTARY=($RAWASTVER)
 ASTVERSION=${RAWASTARY[1]}
+if [[ $ASTVERSION =~ ^18 ]]; then
+  ASTVER="ast180-"
+  echo "  Found Asterisk 18 - v.$ASTVERSION"
+fi
+if [[ $ASTVERSION =~ ^17 ]]; then
+  ASTVER="ast170-"
+  echo "  Found Asterisk 17 - v.$ASTVERSION"
+fi
+if [[ $ASTVERSION =~ ^16 ]]; then
+  ASTVER="ast160-"
+  echo "  Found Asterisk 16 - v.$ASTVERSION"
+fi
 if [[ $ASTVERSION =~ ^15 ]]; then
   ASTVER="ast150-"
   echo "  Found Asterisk 15 - v.$ASTVERSION"
@@ -177,12 +189,12 @@ if [[ $ASTERISK_PS ]]; then
   echo "  Loading codec modules into asterisk PID $ASTERISK_PID..."
   if [ -f $MODDIR/codec_g729.so ]; then
     echo -n "    Loading module codec_g729.so... "
-    $AST_BIN -rx "module reload codec_g729.so" >/dev/null 2>&1 
+    $AST_BIN -rx "module load codec_g729.so" >/dev/null 2>&1 
     echo "done"
   fi
   if [ -f $MODDIR/codec_g723.so ]; then
     echo -n "    Loading module codec_g723.so... "
-    $AST_BIN -rx "module reload codec_g723.so" >/dev/null 2>&1 
+    $AST_BIN -rx "module load codec_g723.so" >/dev/null 2>&1 
     echo "done"
   fi
 else
