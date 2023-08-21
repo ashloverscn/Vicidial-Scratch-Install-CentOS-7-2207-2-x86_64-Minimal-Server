@@ -18,7 +18,7 @@ nano /etc/httpd/conf.d/0000-default.conf
 DocumentRoot /var/www/html/
 Redirect permanent / https://164.132.124.180/
 
-service apache2 restart
+service http restart
 
 nano /etc/asterisk/http.conf
 
