@@ -27,8 +27,8 @@ bindaddr=0.0.0.0
 bindport=8088
 tlsenable=yes
 tlsbindaddr=0.0.0.0:8089
-tlscertfile=/etc/apache2/ssl.crt/vicibox.crt
-tlsprivatekey=/etc/apache2/ssl.key/vicibox.key
+tlscertfile=/etc/httpd/ssl.crt/vicibox.crt
+tlsprivatekey=/etc/httpd/ssl.key/vicibox.key
 
 nano /etc/asterisk/modules.conf
 
