@@ -29,11 +29,6 @@ history -c
 clear
 
 #################################################################################
-echo -e "\e[0;32m Please Enter This Server IP ADDRESS \e[0m"
-sleep 2
-read serveripadd
-
-#################################################################################
 cd /usr/src
 
 yum -y check-update
