@@ -121,7 +121,7 @@ echo -e "\e[0;32m Please Enter Redirect permanent address for https \e[0m"
 sleep 2
 read serveripadd
 
-sed -i 's/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g' /etc/httpd/conf.d/0000-default.conf
+sed -i "s/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g" /etc/httpd/conf.d/0000-default.conf
 
 echo -e "\e[0;32m Configure PHP PHP.ini file \e[0m"
 sleep 2
