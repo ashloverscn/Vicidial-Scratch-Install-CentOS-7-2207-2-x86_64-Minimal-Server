@@ -1,8 +1,11 @@
 ##assuming self signed cert or letencrypt generated
+echo -e "\e[0;32m Please Enter Redirect permanent address for https \e[0m"
+sleep 2
+read serveripadd
 
 sed -i "s/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g" /etc/httpd/conf.d/0000-default.conf
+
 cat /etc/httpd/conf.d/0000-default.conf
-cd ~
 
 systemctl restart httpd.service
 
@@ -20,8 +23,8 @@ mysql -u root
 use asterisk;
 select sounds_web_server,webphone_url from system_settings;
 select external_server_ip,web_socket_url from servers;
-UPDATE system_settings set sounds_web_server='New_IP',webphone_url='https://New_IP/agc/viciphone/viciphone.php';
-UPDATE servers set external_server_ip='New_IP',web_socket_url='wss://New_IP:8089/ws';
+UPDATE system_settings set sounds_web_server='$serveripadd',webphone_url='https://$serveripadd/agc/viciphone/viciphone.php';
+UPDATE servers set external_server_ip='$serveripadd',web_socket_url='wss://$serveripadd:8089/ws';
 select sounds_web_server,webphone_url from system_settings;
 select external_server_ip,web_socket_url from servers;
 exit
