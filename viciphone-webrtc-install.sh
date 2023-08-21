@@ -1,6 +1,6 @@
 ##assuming self signed cert or letencrypt generated
 
-sed -i 's/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/New_IP\//g' /etc/httpd/conf.d/0000-default.conf
+sed -i "s/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g" /etc/httpd/conf.d/0000-default.conf
 cat /etc/httpd/conf.d/0000-default.conf
 cd ~
 
