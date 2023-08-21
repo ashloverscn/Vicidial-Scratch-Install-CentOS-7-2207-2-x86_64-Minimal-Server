@@ -117,6 +117,11 @@ echo "" > /etc/httpd/conf.d/0000-default-ssl.conf
 #\cp -r /usr/src/0000-default-ssl.conf /etc/httpd/conf.d/0000-default-ssl.conf
 mv /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.bak
 
+#################################################################################
+echo -e "\e[0;32m Please Enter Redirect permanent https address \e[0m"
+sleep 2
+read serveripadd
+
 sed -i 's/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g' /etc/httpd/conf.d/0000-default.conf
 
 echo -e "\e[0;32m Configure PHP PHP.ini file \e[0m"
