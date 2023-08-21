@@ -65,8 +65,8 @@ transport=wss
 force_avp=yes
 dtlsenable=yes
 dtlsverify=no
-dtlscertfile=/etc/apache2/ssl.crt/vicibox.crt
-dtlsprivatekey=/etc/apache2/ssl.key/vicibox.key
+dtlscertfile=/etc/httpd/ssl.crt/vicibox.crt
+dtlsprivatekey=/etc/httpd/ssl.key/vicibox.key
 dtlssetup=actpass
 rtcp_mux=yes
 
