@@ -4,7 +4,6 @@ sleep 2
 read serveripadd
 
 sed -i "s/Redirect permanent \/ https:\/\/.*/Redirect permanent \/ https:\/\/$serveripadd\//g" /etc/httpd/conf.d/0000-default.conf
-
 cat /etc/httpd/conf.d/0000-default.conf
 
 systemctl restart httpd.service
