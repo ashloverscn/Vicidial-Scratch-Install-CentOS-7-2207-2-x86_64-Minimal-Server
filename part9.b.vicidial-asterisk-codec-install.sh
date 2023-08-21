@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#rm -rf /usr/lib64/asterisk/modules.bak/
-#\cp -r /usr/lib64/asterisk/modules/ /usr/lib64/asterisk/modules.bak/
-#rm -rf /usr/lib64/asterisk/modules/*
-#\cp -r /usr/src/usr-lib64-asterisk-modules/* /usr/lib64/asterisk/modules/
-#\cp -r /usr/lib64/asterisk/modules.bak/* /usr/lib64/asterisk/modules/
-#chmod +x /usr/lib64/asterisk/modules/*
+rm -rf /usr/lib64/asterisk/modules.bak/
+\cp -r /usr/lib64/asterisk/modules/ /usr/lib64/asterisk/modules.bak/
+rm -rf /usr/lib64/asterisk/modules/*
+\cp -r /usr/src/usr-lib64-asterisk-modules/* /usr/lib64/asterisk/modules/
+\cp -r /usr/lib64/asterisk/modules.bak/* /usr/lib64/asterisk/modules/
+chmod +x /usr/lib64/asterisk/modules/*
 
 # codec-install.sh version 1.00
 #
