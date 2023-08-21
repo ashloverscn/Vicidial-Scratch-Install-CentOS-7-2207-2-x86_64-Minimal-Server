@@ -13,6 +13,7 @@ rm -rf ./lame*
 rm -rf ./jansson*
 rm -rf ./eaccelerator*
 rm -rf ./libpri*
+rm -rf ./viciphone-etc-asterisk
 
 df -h
 sleep 5
