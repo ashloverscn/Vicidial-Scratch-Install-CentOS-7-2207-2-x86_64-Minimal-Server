@@ -1,0 +1,114 @@
+#generate self signed ssl certificates
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/httpd/ssl.key/vicibox.key -out /etc/httpd/ssl.crt/vicibox.crt
+
+#allow asterisk to to update audio store with self-signed certificate
+
+cd /usr/share/astguiclient/
+sed -i 's/wgetbin -q/wgetbin --no-check-certificate -q/g' ADMIN_audio_store_sync.pl
+
+nano /etc/httpd/conf.d/0000-default-ssl.conf
+
+SSLEngine on
+SSLCertificateFile /etc/httpd/ssl.crt/vicibox.crt
+SSLCertificateKeyFile /etc/httpd/ssl.key/vicibox.key
+
+nano /etc/httpd/conf.d/0000-default.conf
+
+DocumentRoot /srv/www/htdocs
+Redirect permanent / https://164.132.124.180/
+
+service apache2 restart
+
+nano /etc/asterisk/http.conf
+
+enabled=yes
+bindaddr=0.0.0.0
+bindport=8088
+tlsenable=yes
+tlsbindaddr=0.0.0.0:8089
+tlscertfile=/etc/apache2/ssl.crt/vicibox.crt
+tlsprivatekey=/etc/apache2/ssl.key/vicibox.key
+
+nano /etc/asterisk/modules.conf
+
+load => res_http_websocket.so
+
+#perform reboot
+
+#include this 4 lines in sip.conf  in the beginning
+
+nano /etc/asterisk/sip.conf
+
+[general]
+transport=udp,ws,wss
+avpf=yes
+srvlookup=yes
+udpbindaddr=0.0.0.0:5060
+rtcp_mux=yes
+
+#Go to ADMIN --> System settings
+Wephone URL: https://164.132.124.180/agc/viciphone/viciphone.php
+
+#Goto ADMIN -> Servers
+Web Socket URL : wss://164.132.124.180:8089/ws
+
+#Go to Admin -> Templates and add new template
+
+type=friend
+host=dynamic
+encryption=yes
+avpf=yes
+icesupport=yes
+directmedia=no
+transport=wss
+force_avp=yes
+dtlsenable=yes
+dtlsverify=no
+dtlscertfile=/etc/apache2/ssl.crt/vicibox.crt
+dtlsprivatekey=/etc/apache2/ssl.key/vicibox.key
+dtlssetup=actpass
+rtcp_mux=yes
+
+#Go to Admin -> Phones > add A New Phone (default)
+Set As Webphone: Y
+Webphone Auto-Answer: Y
+Use External Server IP  : N  
+Template ID: that u just created
+
+#check dahdi asterisk apache2 are running gracefully
+try agent screen login u must see registered
+
+#confirm websocket is loaded , run the below command 
+#make sure it says “HTTPS Server Enabled and Bound to 0.0.0.0:8089”
+asterisk -rx 'http show status'
+
+#Downloading the viciphone  
+official link : https://viciphone.com  
+githublink : https://github.com/vicimikec/ViciPhone
+
+#SSH to your vicibox and run below commands
+
+#viciphone official
+rm -rf /var/tmp/ViciPhone/
+rm -rf /srv/www/htdocs/agc/viciphone
+cd /var/tmp
+git clone https://github.com/vicimikec/ViciPhone.git
+mkdir /srv/www/htdocs/agc/viciphone
+\cp -r ./ViciPhone/src/* /srv/www/htdocs/agc/viciphone
+chmod -R 755 /srv/www/htdocs/agc/viciphone
+cd /usr/src
+
+#improved version of viciphone
+rm -rf /var/tmp/ViciPhone/
+rm -rf /srv/www/htdocs/agc/viciphone
+cd /var/tmp
+git clone https://github.com/ccabrerar/ViciPhone.git
+mkdir /srv/www/htdocs/agc/viciphone
+\cp -r ./ViciPhone/* /srv/www/htdocs/agc/viciphone
+chmod -R 755 /srv/www/htdocs/agc/viciphone
+cd /usr/src
+
+
+#Update server ip with new configuration
+
+/usr/share/astguiclient/ADMIN_update_server_ip.pl
