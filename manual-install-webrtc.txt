@@ -14,7 +14,7 @@ SSLCertificateKeyFile /etc/httpd/ssl.key/vicibox.key
 
 nano /etc/httpd/conf.d/0000-default.conf
 
-DocumentRoot /srv/www/htdocs
+DocumentRoot /var/www/html/
 Redirect permanent / https://164.132.124.180/
 
 service apache2 restart
@@ -90,22 +90,22 @@ githublink : https://github.com/vicimikec/ViciPhone
 
 #viciphone official
 rm -rf /var/tmp/ViciPhone/
-rm -rf /srv/www/htdocs/agc/viciphone
+rm -rf /var/www/html/agc/viciphone
 cd /var/tmp
 git clone https://github.com/vicimikec/ViciPhone.git
-mkdir /srv/www/htdocs/agc/viciphone
-\cp -r ./ViciPhone/src/* /srv/www/htdocs/agc/viciphone
-chmod -R 755 /srv/www/htdocs/agc/viciphone
+mkdir /var/www/html/agc/viciphone
+\cp -r ./ViciPhone/src/* /var/www/html/agc/viciphone
+chmod -R 755 /var/www/html/agc/viciphone
 cd /usr/src
 
 #improved version of viciphone
 rm -rf /var/tmp/ViciPhone/
-rm -rf /srv/www/htdocs/agc/viciphone
+rm -rf /var/www/html/agc/viciphone
 cd /var/tmp
 git clone https://github.com/ccabrerar/ViciPhone.git
-mkdir /srv/www/htdocs/agc/viciphone
-\cp -r ./ViciPhone/* /srv/www/htdocs/agc/viciphone
-chmod -R 755 /srv/www/htdocs/agc/viciphone
+mkdir /var/www/html/agc/viciphone
+\cp -r ./ViciPhone/* /var/www/html/agc/viciphone
+chmod -R 755 /var/www/html/agc/viciphone
 cd /usr/src
 
 
