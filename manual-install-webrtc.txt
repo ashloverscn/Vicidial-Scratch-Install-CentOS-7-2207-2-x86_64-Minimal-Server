@@ -1,4 +1,5 @@
 #generate self signed ssl certificates
+mkdir -p /etc/httpd/ssl.key/ && mkdir -p /etc/httpd/ssl.crt/
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/httpd/ssl.key/vicibox.key -out /etc/httpd/ssl.crt/vicibox.crt
 
 #allow asterisk to to update audio store with self-signed certificate
