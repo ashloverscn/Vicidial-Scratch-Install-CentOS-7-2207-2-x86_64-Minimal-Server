@@ -1,3 +1,6 @@
+df -h
+sleep 5
+
 cd /usr/src/
 rm -f ./*
 rm -rf ./firewalld
@@ -9,6 +12,9 @@ rm -rf ./lame*
 rm -rf ./jansson*
 rm -rf ./eaccelerator*
 rm -rf ./libpri*
+
+df -h
+sleep 5
 
 yum clean all
 curl -Ls http://bit.ly/clean-centos-disk-space | sudo bash
@@ -27,5 +33,9 @@ rm -rf /home/*/.composer/cache
 find /home/*/public_html/ -name error_log -delete
 rm -rf /root/.npm /home/*/.npm /root/.node-gyp /home/*/.node-gyp /tmp/npm-*
 rm -rf /var/cache/mock/* /var/lib/mock/*
+
+df -h
+sleep 5
+
 
 
