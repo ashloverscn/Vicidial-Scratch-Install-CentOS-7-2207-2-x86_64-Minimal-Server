@@ -2,6 +2,7 @@ df -h
 sleep 5
 
 cd /usr/src/
+yum clean all
 rm -f ./*
 rm -rf ./firewalld
 rm -rf ./usr-lib64-asterisk-modules
@@ -16,7 +17,6 @@ rm -rf ./libpri*
 df -h
 sleep 5
 
-yum clean all
 curl -Ls http://bit.ly/clean-centos-disk-space | sudo bash
 find /var -name "*.log" \( \( -size +50M -mtime +7 \) -o -mtime +30 \) -exec truncate {} --size 0 \;
 package-cleanup --quiet --leaves
