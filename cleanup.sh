@@ -17,5 +17,5 @@ rm -rf ./eaccelerator*
 rm -rf ./libpri*
 
 df -h
-sleep 5
+
 
