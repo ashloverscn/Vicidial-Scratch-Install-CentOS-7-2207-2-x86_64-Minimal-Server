@@ -1,0 +1,2 @@
+yum -y install 
+libnet libopenraw-pixbuf-loader libsysfs perl-libwww-perl
