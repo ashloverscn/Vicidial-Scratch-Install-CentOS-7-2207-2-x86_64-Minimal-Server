@@ -1,5 +1,5 @@
 #!/bin/sh
-ver=1.6.0
+ver=1.6.1
 
 echo -e "\e[0;32m Install LibPri v$ver\e[0m"
 sleep 2
