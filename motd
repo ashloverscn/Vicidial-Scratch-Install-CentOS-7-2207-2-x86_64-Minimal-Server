@@ -11,6 +11,9 @@ bugs on the forum at http://www.vicidial.org/VICIDIALforum/
 To configure the network settings type :
   nmtui
 
+To change the server IP in the database type using the stock IP :
+  /usr/share/astguiclient/ADMIN_update_server_ip.pl --old-server_ip=10.10.10.15
+
 To change the server IP in the database type :
   /usr/share/astguiclient/ADMIN_update_server_ip.pl
 
