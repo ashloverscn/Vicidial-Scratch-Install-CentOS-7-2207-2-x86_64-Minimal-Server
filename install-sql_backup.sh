@@ -1,5 +1,6 @@
 #!/bin/sh
 
+ls *.sql
 yum -y install expect
 echo -e "\e[0;32m Please Enter The OLD Server IP ADDRESS \n appended to the backup sql file name \e[0m"
 read oldserveripadd
