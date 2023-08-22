@@ -1,3 +1,6 @@
+#!/bin/sh
+
+yum -y install expect
 ##assuming self signed cert or letencrypt generated
 echo -e "\e[0;32m Please Enter Redirect permanent address for https \e[0m"
 sleep 2
