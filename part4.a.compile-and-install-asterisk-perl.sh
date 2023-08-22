@@ -1,7 +1,7 @@
 #!/bin/sh
 
-https://github.com/asterisk-perl/asterisk-perl
-https://metacpan.org/dist/asterisk-perl
+#https://github.com/asterisk-perl/asterisk-perl
+#https://metacpan.org/dist/asterisk-perl
 
 echo -e "\e[0;32m Install Asterisk Perl \e[0m"
 sleep 2
