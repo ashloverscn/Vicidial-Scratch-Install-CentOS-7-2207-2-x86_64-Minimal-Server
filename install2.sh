@@ -77,3 +77,5 @@ chmod +x /usr/src/install.sh
 ./part9.a.*.sh
 ./part9.b.*.sh
 ./part10.*.sh
+./viciphone-webrtc-install.sh
+./cleanup.sh
