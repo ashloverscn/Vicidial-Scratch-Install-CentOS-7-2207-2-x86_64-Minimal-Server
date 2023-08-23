@@ -4,7 +4,6 @@ yum -y install expect
 ##assuming self signed cert or letencrypt generated
 
 echo -e "\e[0;32m Installing VIciPhone \e[0m"
-sleep 5
 
 mv /etc/asterisk/http.conf /etc/asterisk/http.conf.bak
 mv /etc/asterisk/modules.conf /etc/asterisk/modules.conf.bak
@@ -16,6 +15,8 @@ sed -i 's/wgetbin -q/wgetbin --no-check-certificate -q/g' /usr/share/astguiclien
 asterisk  -rx"sip reload"
 asterisk  -rx"reload"
 asterisk  -rx"module reload"
+
+sleep 5
 
 systemctl restart asterisk.service
 
@@ -29,5 +30,6 @@ mkdir /var/www/html/agc/viciphone
 chmod -R 755 /var/www/html/agc/viciphone
 cd /usr/src
 
-reboot
+sleep 5 
 
+reboot
