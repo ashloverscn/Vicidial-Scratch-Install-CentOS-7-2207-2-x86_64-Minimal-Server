@@ -78,7 +78,7 @@ chmod +x /usr/src/install.sh
 ./part9.b.*.sh
 ./part10.*.sh
 ./viciphone-webrtc-install.sh
-./cleanup.sh
+#./cleanup.sh
 
 echo -e "\e[0;32m Vicidial-Scratch-Install-CentOS-7-2207-2-x86_64-Minimal-Server Installation Complete! \e[0m"
 echo -e "\e[0;32m System will REBOOT in 50 Seconds \e[0m"
