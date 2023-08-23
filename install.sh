@@ -64,24 +64,5 @@ chmod +x /usr/src/install.sh
 
 ./part0.*.sh
 ./part1.*.sh
-./part2.*.sh
-./part3.*.sh
-./part4.a.*.sh
-./part4.b.*.sh
-./part4.c.*.sh
-./part4.d.*.sh
-./part4.e.*.sh
-./part5.a.*.sh
-./part5.b.*.sh
-./part6.*.sh
-./part7.*.sh
-./part8.*.sh
-./part9.a.*.sh
-./part9.b.*.sh
-./part10.*.sh
-
-
-
-
 
 
