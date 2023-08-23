@@ -32,6 +32,6 @@ cd /usr/src
 
 sleep 5 
 
-reboot
+#reboot
 
 
