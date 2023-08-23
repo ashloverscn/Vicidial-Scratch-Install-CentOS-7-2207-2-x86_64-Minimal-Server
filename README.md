@@ -16,6 +16,9 @@ HOW TO INSTALL :
 ## root permission needed
 sudo su
 
+#set your own speific timezone under which you are
+timedatectl set-timezone Asia/Kolkata
+
 cd /usr/src
 
 yum -y install wget git
@@ -31,6 +34,9 @@ chmod +x install.sh
 
 ## alternatively if not working use git clone
 sudo su
+
+#set your own speific timezone under which you are
+timedatectl set-timezone Asia/Kolkata
 
 cd /usr/src
 
