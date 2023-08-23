@@ -32,6 +32,7 @@ chmod +x install.sh
 
 # run install again after reboot
 /usr/src/./install.sh
+
 /usr/src/./cleanup.sh
 
 ## alternatively if not working use git clone
@@ -55,6 +56,7 @@ chmod +x install.sh
 
 # run install again after reboot
 /usr/src/./install.sh
+
 /usr/src/./cleanup.sh
 
 
