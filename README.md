@@ -17,6 +17,7 @@ HOW TO INSTALL :
 sudo su
 
 #set your own speific timezone under which you are
+
 timedatectl set-timezone Asia/Kolkata
 
 cd /usr/src
@@ -36,6 +37,7 @@ chmod +x install.sh
 sudo su
 
 #set your own speific timezone under which you are
+
 timedatectl set-timezone Asia/Kolkata
 
 cd /usr/src
