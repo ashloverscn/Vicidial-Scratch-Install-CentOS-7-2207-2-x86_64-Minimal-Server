@@ -3,9 +3,9 @@
 yum -y install expect
 ##assuming self signed cert or letencrypt generated
 
-echo -e "\e[0;32m Installing VIciPhone \e[0m"
+echo -e "\e[0;32m Installing ViciPhone \e[0m"
 
-echo -e "\e[0;32m Configure asterisk for VIciPhone \e[0m"
+echo -e "\e[0;32m Configure asterisk for ViciPhone \e[0m"
 sleep 2
 
 mv /etc/asterisk/http.conf /etc/asterisk/http.conf.bak
@@ -25,9 +25,11 @@ asterisk  -rx"sip reload"
 asterisk  -rx"reload"
 asterisk  -rx"module reload"
 
-sleep 5
+sleep 2
 
 systemctl restart asterisk.service
+
+sleep 2
 
 echo -e "\e[0;32m Install ViciPhone from git repo \e[0m"
 sleep 2
