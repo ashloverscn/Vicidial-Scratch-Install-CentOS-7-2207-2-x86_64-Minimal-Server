@@ -51,5 +51,7 @@ make samples
 make config
 
 systemctl enable asterisk && systemctl start asterisk
+
 \cp -r /usr/src/asterisk-$ver/contrib/init.d/rc.redhat.asterisk /etc/init.d/asterisk
+
 
