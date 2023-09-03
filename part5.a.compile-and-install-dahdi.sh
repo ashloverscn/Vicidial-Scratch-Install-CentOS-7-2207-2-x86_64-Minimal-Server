@@ -19,7 +19,7 @@ then
 	tar -xvzf dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
 	cd dahdi-linux-complete-2.3.0.1+2.3.0
 else
-	wget -O dahdi-linux-complete-$ver+$ver.tar.gz https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-$ver%2B$ver.tar.gz
+	wget -O dahdi-linux-complete-$ver+$ver.tar.gz https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-$ver+$ver.tar.gz
 	tar -xvzf dahdi-linux-complete-$ver+$ver.tar.gz
 	cd dahdi-linux-complete-$ver+$ver
 fi
