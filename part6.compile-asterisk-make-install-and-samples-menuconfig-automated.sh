@@ -20,7 +20,7 @@ tar -xvzf asterisk-$ver-patch.tar.gz
 
 #: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 : ${JOBS:=$(nproc)}
-./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
+./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled CFLAGS="-std=gnu99 -O2"
 
 #### asterisk menuselect preconfig
 make menuselect/menuselect menuselect-tree menuselect.makeopts
