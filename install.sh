@@ -28,6 +28,10 @@ history -c
 
 clear
 
+#echo -e "\e[0;32m Set TimeZone Asia/Kolkata \e[0m"
+#sleep 2
+#timedatectl set-timezone Asia/Kolkata
+
 #################################################################################
 echo "➜ Removing old repo files..."
 rm -f /etc/yum.repos.d/*.repo
@@ -89,10 +93,6 @@ rm -rf ./Vicidial-Scratch-Install-*
 chmod +x *.sh
 
 pwd
-
-#echo -e "\e[0;32m Set TimeZone Asia/Kolkata \e[0m"
-#sleep 2
-#timedatectl set-timezone Asia/Kolkata
 
 ###########################################################################################################
 echo -e "\e[0;32m Installation Started from part0.*.sh \e[0m"
