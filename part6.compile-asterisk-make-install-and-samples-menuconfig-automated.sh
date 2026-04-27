@@ -5,18 +5,18 @@
 #oem=1
 #subdr=required-apps
 #subdr=beta-apps
-subdr=beta-apps
-ver=16.30.0
-oem=0
+subdr=required-apps
+ver=18.21.0
+oem=1
 
-echo -e "\e[0;32m Install Asterisk v$ver$oem \e[0m"
+echo -e "\e[0;32m Install Asterisk v$ver \e[0m"
 sleep 2
 cd /usr/src
 #rm -rf asterisk*
-#yum remove asterisk -y
-#yum remove asterisk-* -y
-yum install asterisk -y
-yum install asterisk-* -y
+yum remove asterisk -y
+yum remove asterisk-* -y
+#yum install asterisk -y
+#yum install asterisk-* --exclude=kernel-debug* -y
 if [ $oem -eq 1 ]
 then
 wget -O asterisk-$ver-vici.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
@@ -34,7 +34,8 @@ tar -xvzf asterisk-$ver-patch.tar.gz
 
 fi
 
-: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
+#: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
+: ${JOBS:=$(nproc)}
 ./configure --libdir=/usr/lib64 --with-gsm=internal --enable-opus --enable-srtp --with-ssl --enable-asteriskssl --with-pjproject-bundled --with-jansson-bundled
 
 #### asterisk menuselect preconfig
@@ -49,9 +50,51 @@ make -j ${JOBS} all
 make install
 make samples
 make config
-
-systemctl enable asterisk && systemctl start asterisk
+sed -i 's|noload = chan_sip.so|;noload = chan_sip.so|g' /etc/asterisk/modules.conf
 
 \cp -r /usr/src/asterisk-$ver/contrib/init.d/rc.redhat.asterisk /etc/init.d/asterisk
 
+echo -e "\e[0;32m Enable asterisk.service in systemctl \e[0m"
+sleep 2
 
+\cp -r /etc/systemd/system/asterisk.service /etc/systemd/system/asterisk.service.bak
+rm -rf /etc/systemd/system/asterisk.service
+touch /etc/systemd/system/asterisk.service
+
+tee /etc/systemd/system/asterisk.service <<EOF
+[Unit]
+Description=Asterisk PBX
+Wants=network-online.target
+After=network-online.target nss-lookup.target dahdi.service mysql.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+# Automatically creates /run/asterisk with correct permissions on boot
+RuntimeDirectory=asterisk
+RuntimeDirectoryMode=0775
+PIDFile=/run/asterisk/asterisk.pid
+# -f: foreground, -n: no console color, -g: dump core on crash
+ExecStart=/usr/sbin/asterisk -f -n -g
+ExecReload=/usr/sbin/asterisk -rx "core reload"
+KillMode=mixed
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+#restart asterisk Service
+systemctl daemon-reload && \
+systemctl disable asterisk.service && \
+systemctl enable asterisk.service && \
+systemctl restart asterisk.service && \
+systemctl status asterisk.service | head -n 18
+
+\cp -r /asterisk.sh /asterisk.sh.bak
+rm -rf /asterisk.sh
+\cp -r  /usr/src/asterisk.sh /asterisk.sh
+
+chmod +x /asterisk.sh 
