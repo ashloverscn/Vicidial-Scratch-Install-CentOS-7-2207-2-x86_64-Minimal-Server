@@ -13,6 +13,8 @@ yum install kernel-devel-$(uname -r) -y
 #yum remove dahdi-tools* -y
 yum install dahdi* -y
 yum install dahdi-tools* -y
+yum install gcc gcc-c++ make perl patch libedit-devel libuuid-devel libxml2-devel newt-devel -y
+
 if [ $oem -eq 1 ]
 then
 	wget http://download.vicidial.com/required-apps/dahdi-linux-complete-2.3.0.1+2.3.0.tar.gz
