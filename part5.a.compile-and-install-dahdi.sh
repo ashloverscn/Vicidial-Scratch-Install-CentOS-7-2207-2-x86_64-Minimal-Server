@@ -1,5 +1,5 @@
 #!/bin/sh
-ver=3.1.0
+ver=3.4.0
 #oem=1
 #ver=3.2.0
 oem=0
