@@ -1,13 +1,5 @@
 #!/bin/sh
-#ver=13.29.2
-#ver=16.17.0
-#oem=0
-#oem=1
-#subdr=required-apps
-#subdr=beta-apps
-subdr=required-apps
 ver=18.21.0
-oem=1
 
 echo -e "\e[0;32m Install Asterisk v$ver \e[0m"
 sleep 2
@@ -17,13 +9,7 @@ yum remove asterisk -y
 yum remove asterisk-* -y
 #yum install asterisk -y
 #yum install asterisk-* --exclude=kernel-debug* -y
-if [ $oem -eq 1 ]
-then
-wget -O asterisk-$ver-vici.tar.gz http://download.vicidial.com/$subdr/asterisk-$ver-vici.tar.gz
-tar -xvzf asterisk-$ver-vici.tar.gz
-cd asterisk-$ver-vici
 
-else
 wget -O asterisk-$ver.tar.gz https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ver.tar.gz
 tar -xvzf asterisk-$ver.tar.gz
 cd asterisk-$ver
@@ -31,8 +17,6 @@ wget https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-$ve
 tar -xvzf asterisk-$ver-patch.tar.gz
 #patch if needed
 #patch -p0 < asterisk-$ver-patch
-
-fi
 
 #: ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 : ${JOBS:=$(nproc)}
