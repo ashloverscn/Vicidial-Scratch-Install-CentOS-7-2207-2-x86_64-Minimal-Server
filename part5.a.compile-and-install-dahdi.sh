@@ -44,28 +44,29 @@ sleep 2
 rm -rf /etc/systemd/system/dahdi.service
 touch /etc/systemd/system/dahdi.service
 
-cat <<DAHDI>> /etc/systemd/system/dahdi.service
-
+tee /etc/systemd/system/dahdi.service <<'EOF'
 [Unit]
 Description=DAHDI Telephony Drivers
-After=network.target
+# Ensure hardware is initialized before starting
+After=systemd-modules-load.service local-fs.target
 Before=asterisk.service
 
 [Service]
 Type=oneshot
-ExecStartPre=/sbin/modprobe dahdi
-ExecStartPre=/sbin/modprobe dahdi_dummy
-ExecStart=/usr/sbin/dahdi_cfg -v
-ExecReload=/usr/sbin/dahdi_cfg -v
-ExecStop=/usr/sbin/dahdi_cfg -v
-Restart=on-failure
-RestartSec=2
 RemainAfterExit=yes
+# Load kernel modules
+ExecStartPre=/usr/sbin/modprobe dahdi
+ExecStartPre=/usr/sbin/modprobe dahdi_dummy
+# Configure spans
+ExecStart=/usr/sbin/dahdi_cfg -v
+# Reloading re-runs configuration
+ExecReload=/usr/sbin/dahdi_cfg -v
+# Properly unconfigure spans on stop to prevent "device busy" errors
+ExecStop=/usr/sbin/dahdi_cfg -v -unconfigure
 
 [Install]
 WantedBy=multi-user.target
-
-DAHDI
+EOF
 
 #restart dahdi Service
 systemctl daemon-reload && \
