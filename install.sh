@@ -62,6 +62,18 @@ name=CentOS-7 - Plus
 baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/7.9.2009/centosplus/$basearch/
 enabled=1
 gpgcheck=0
+
+[centos-sclo-rh]
+name=CentOS-7 - SCLo RH
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/7.9.2009/sclo/$basearch/rh/
+enabled=1
+gpgcheck=0
+
+[centos-sclo-sclo]
+name=CentOS-7 - SCLo Sclo
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/7.9.2009/sclo/$basearch/sclo/
+enabled=1
+gpgcheck=0
 EOF
 
 echo "➜ Cleaning YUM cache..."
